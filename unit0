@@ -1,0 +1,278 @@
+# Week 1 Implementation Guide — Unit 0: Getting Started
+For 45-minute class periods. This expands Setup and the “Start Project: ASCII/Turtle Name Badge” referenced in the scope and sequence.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Week 1
+- Students can log in, open a Python workspace, run code, and submit a link/file.
+- Students understand what a REPL is vs saving code in a file.
+- Students create a simple “About Me” badge using either print (ASCII) or turtle graphics.
+- Students practice classroom norms and digital citizenship.
+
+---
+
+## Materials and Prep
+- Slides or board bullets: “What is CS?”, “Class norms,” “REPL vs file,” “Your first program”
+- Projector to demo
+- Teacher account set up on Replit or devices with Thonny installed
+- Handout (optional): mini checklist for project requirements
+- Starter links (optional): blank Replit project or a Thonny template file
+
+---
+
+## Setup — What it entails
+1) Choose a Platform
+- Option A: Replit (browser-based, easiest for class)
+  - Teacher: Create a Replit account. Optional: Create a Team/Class in Replit and a “Python” project to share as a template.
+  - Students: Sign in (Google SSO recommended). Join your class if using Replit Teams or open a new Python Repl.
+- Option B: Thonny (desktop)
+  - Teacher: Ensure Python 3.10+ is installed (Thonny bundles Python). Install Thonny on student machines.
+  - Students: Open Thonny, select Interpreter: Python 3 (default), confirm Run works.
+
+2) Norms and Safety
+- Pair programming expectations: driver/navigator, switch roles midway.
+- Digital citizenship: respectful comments, school-appropriate content, no sharing personal info in projects beyond first name if required by school policy.
+- Collaboration: explain how to attribute help (“Thanks to X for testing”).
+
+3) Workspace Conventions
+- File naming: use lowercase, underscores, e.g., name_badge.py
+- Submission: 
+  - Replit: share link via LMS (or Replit Teams submission).
+  - Thonny: save the .py file to a designated class folder or LMS upload.
+- Versioning habit: “v1”, “v2” comments at top when making improvements.
+
+4) REPL vs File (teach and demo)
+- REPL: where you can type `print("Hello")` and see immediate results (great for quick tests).
+- File: a saved program you can re-run later (great for projects).
+- Demo both:
+  - Replit: Shell/Console as REPL, main.py as file.
+  - Thonny: Shell as REPL, Editor as file.
+
+5) Quick Health Check
+- Every student successfully:
+  - Runs `print("Hello, world!")` in the REPL
+  - Creates and runs `main.py` (Replit) or `name_badge.py` (Thonny)
+  - Knows how to submit work (paste link or upload file)
+
+---
+
+## Suggested Flow for 45-Minute Sessions (Week 1)
+
+Session A (45 minutes)
+- 5 min: Bell ringer — “Predict the output” for 2 small print statements
+- 10–12 min: Mini-lesson — What is CS? Course norms. REPL vs File demo
+- 20–25 min: Hands-on Setup and first code:
+  - Everyone logs in/opens editor, runs Hello World in REPL and file
+  - Start “Name Badge” planning (choose ASCII or turtle)
+- 3–5 min: Exit ticket — “What’s one difference between REPL and a .py file?”
+
+Session B (45 minutes)
+- 5 min: Bell ringer — Find-the-bug: missing quote or parenthesis
+- 5–8 min: Micro-demo — printing multiple lines OR turtle write text
+- 25–30 min: Build the Name Badge; peer test; quick polish
+- 3–5 min: Submit (link/file) + reflection (2–3 sentences)
+
+Session C (optional)
+- Extension lab: formatting tricks, colors, or shapes; mini-gallery walk
+
+---
+
+## Start Project: ASCII/Turtle Name Badge
+Students choose ONE path (ASCII or turtle). Both meet the same learning targets (run a program, print/draw, simple layout).
+
+Project Requirements (post these visibly)
+- Title or name
+- 3 facts about you (school-appropriate)
+- Clear formatting (ASCII borders/spacing) OR a simple turtle layout
+- No runtime errors
+- A short reflection (2–3 sentences): one thing you learned, one challenge
+
+Submission
+- Replit: paste project link
+- Thonny: upload name_badge.py (and turtle assets not required)
+
+Rubric (Week 1 — quick)
+- Meets: All required elements present, runs, layout is readable, reflection included
+- Approaching: One element missing or minor formatting/runtime issues
+- Exceeds: Adds polish (ASCII art, colors, simple shape/logo) and neat organization
+
+---
+
+## Option A — ASCII Name Badge (print only)
+
+Plan (2 minutes)
+- Write your first name (or initials) and 3 facts you want to share.
+- Sketch roughly what the badge will look like (box, title, bullets).
+
+Starter Steps
+1) Create a new file called name_badge.py
+2) Add your name in a comment at the top
+3) Use multiple print statements to build the badge
+
+Example 1: Minimal badge
+```python
+# name_badge.py
+# Author: Firstname
+
+print("==============")
+print("  Hi, I'm Ava  ")
+print("==============")
+print("- I like soccer")
+print("- I have 2 pets")
+print("- My favorite snack is popcorn")
+```
+
+Example 2: Using a triple-quoted string for multi-line printing
+```python
+# name_badge.py
+# Author: Firstname
+
+print("""
+=========================
+      Hello! I'm Leo
+=========================
+- I love building robots
+- I can solve a Rubik's cube
+- My favorite color is green
+""")
+```
+
+Polish ideas
+- Add an extra blank line between sections: `print()` with no text
+- Center text by adjusting spaces manually
+- Create a border with `*` or `#`
+
+Common pitfalls and fixes
+- Mismatched quotes: make sure you use the same type to open/close
+- Invisible characters: if alignment looks off, re-count spaces
+- Save and run: remember to re-run after each change
+
+Exit ticket prompt (for ASCII)
+- “What did `print()` do for each line, and how did you control spacing?”
+
+---
+
+## Option B — Turtle Name Badge (simple graphics)
+
+Plan (3 minutes)
+- Decide a background color and text color
+- Choose where your name and 3 facts will go (top/middle/bottom)
+
+Starter Steps
+1) Create a new file called name_badge.py
+2) Add your name in a comment
+3) Use turtle to draw a rectangle and write text
+
+Example: Simple badge
+```python
+# name_badge.py
+# Author: Firstname
+
+import turtle
+
+screen = turtle.Screen()
+screen.title("My Name Badge")
+screen.bgcolor("lightyellow")
+
+pen = turtle.Turtle()
+pen.hideturtle()
+pen.speed(0)
+
+# Draw border
+pen.pensize(4)
+pen.color("black")
+pen.penup()
+pen.goto(-200, 150)
+pen.pendown()
+for _ in range(2):
+    pen.forward(400)
+    pen.right(90)
+    pen.forward(300)
+    pen.right(90)
+
+# Write name (title)
+pen.penup()
+pen.goto(0, 80)
+pen.color("blue")
+pen.write("Hi! I'm Ava", align="center", font=("Arial", 24, "bold"))
+
+# Write three facts
+pen.color("black")
+facts = [
+    "- I like soccer",
+    "- I have 2 pets",
+    "- Favorite snack: popcorn"
+]
+
+y = 30
+for fact in facts:
+    pen.goto(-180, y)
+    pen.write(fact, align="left", font=("Arial", 14, "normal"))
+    y -= 30
+
+# Keep window open until click (Thonny/IDLE)
+screen.exitonclick()
+```
+
+Polish ideas
+- Change colors: `screen.bgcolor("lavender")`, `pen.color("darkgreen")`
+- Add a small shape or icon (star, heart) near your name
+- Use different fonts and sizes for headers vs facts
+
+Common pitfalls and fixes
+- Nothing appears: ensure you run the file, not the REPL snippet
+- Text off-screen: adjust the `goto(x, y)` positions
+- Window closes instantly: use `screen.exitonclick()` at the end (Thonny)
+
+Exit ticket prompt (for turtle)
+- “What is the purpose of `pen.penup()` and `pen.pendown()`?”
+
+---
+
+## Teacher Notes and Troubleshooting
+- If devices struggle with turtle in Replit:
+  - Use the ASCII version in Week 1 and revisit turtle in Unit 7
+  - Or run turtle locally with Thonny
+- Keyboard shortcuts to speed flow:
+  - Replit: Ctrl+Enter to run, or use the Run button
+  - Thonny: F5 to run the current file
+- Early finishers: add a border pattern, color themes, or a simple shape logo
+
+---
+
+## Mini-Checks for Understanding
+- Ask 2–3 students to explain REPL vs file in their own words
+- Quick cold-call: “How do we add a blank line in output?” (Answer: `print()` with nothing)
+- Turtle: “What does `goto(x, y)` control?” (Position on the screen/coordinate plane)
+
+---
+
+## Reflection Prompts (choose one)
+- “What was the trickiest part of making your badge look the way you wanted?”
+- “What’s a change you’d make if you had 10 more minutes?”
+- “How did pair feedback help you improve your badge?”
+
+---
+
+## Ready-to-Use Checklists (copy to LMS)
+Student Checklist
+- [ ] I ran “Hello, world!” in REPL and in a .py file
+- [ ] I chose ASCII or turtle for my badge
+- [ ] My badge shows my name and 3 facts
+- [ ] My program runs without errors
+- [ ] I submitted my link/file and wrote a 2–3 sentence reflection
+
+Peer Review Quick Card
+- [ ] Name is easy to find/read
+- [ ] Three facts are clear and school-appropriate
+- [ ] Layout is neat (spacing/positioning)
+- [ ] One suggestion to improve (write it here): __________
+
+---
+
+## What to Carry Forward to Week 2
+- Save 2–3 screenshots of exemplary badges to showcase
+- Note common sticking points (quotes, spacing, turtle coordinates)
+- Prepare a short slide or starter for input() and variables next week
