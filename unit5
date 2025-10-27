@@ -1,0 +1,195 @@
+# Unit 5 Implementation Guide — Strings and Lists
+For 45-minute class periods (Weeks 11–13). This guide expands on string manipulation, list operations, and the unit's projects: Word Scrambler, Playlist Organizer, and Hangman Lite.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 5
+- Students can access and manipulate parts of strings using **indexing** and **slicing**.
+- Students can use common string **methods** like `.lower()`, `.split()`, and `.join()`.
+- Students can create and manage ordered data using **lists**.
+- Students can modify lists with methods like `.append()`, `.remove()`, and `del`.
+- Students can iterate over strings and lists using a `for` loop.
+- Students can choose and build one of three core projects that demonstrate competency with strings and/or lists.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Sequences:** Both strings and lists are *sequences*, meaning they are an ordered collection of items. The order is predictable and you can access items by their position.
+- **String (`str`):** A sequence of characters. Strings are **immutable**, meaning you can't change a character in a string directly; you have to create a *new* string.
+  - *Analogy:* A printed book. You can read any page, but you can't erase and change a word on the page itself.
+- **List (`list`):** A sequence of any type of item (numbers, strings, even other lists!). Lists are **mutable**, meaning you can add, remove, or change items in place.
+  - *Analogy:* A playlist on your phone. You can add new songs, remove old ones, and reorder them anytime.
+- **Indexing:** Accessing a single item in a sequence using its position number in square brackets `[]`. **Python always starts counting from 0!**
+  - `word = "Python"` -> `word[0]` is `"P"`, `word[2]` is `"t"`.
+- **Slicing:** Grabbing a "slice" or a sub-sequence from a sequence using `[start:end]`. The `end` position is not included.
+  - `word = "Python"` -> `word[0:2]` is `"Py"`. A cool trick: `word[::-1]` reverses the string!
+- **Methods:** Built-in functions that belong to an object (like a string or list). You call them with a dot (`.`).
+  - **String Methods:** `.lower()`, `.upper()`, `.strip()`, `.split()`, `.join()`.
+  - **List Methods:** `.append(item)`, `.remove(item)`, `.pop(index)`.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Slides or board notes for indexing/slicing diagrams and method explanations.
+- Starter code for the three project choices.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 11, Session A: Introduction to Strings
+- **5 min — Bell Ringer:**
+  - On the board: `word = "GitHub"`
+  - Ask: "What do you think `print(word[0])` will do? What about `print(word[3])`?"
+- **15 min — Mini-Lesson:**
+  - Explain strings as sequences.
+  - Demonstrate 0-based indexing with `[]`.
+  - Demonstrate slicing `[start:end]` to get substrings. Show the `[::-1]` trick for reversing.
+  - Introduce key methods: `.lower()`, `.upper()`, and `.strip()`.
+- **20 min — Guided Practice:**
+  - **Task 1: Palindrome Checker.** A palindrome is a word that reads the same forwards and backwards (e.g., "racecar"). Write code that asks for a word, converts it to lowercase, and checks if the word is equal to its reverse.
+  - **Task 2: Censor a Word.** Ask for a sentence and a word to censor. Use the `.replace()` method to replace the word with `****`.
+- **5 min — Exit Ticket:** "If `word = 'Hello'`, what is `word[1:4]`?" (Answer: `'ell'`)
+
+### Week 11, Session B: Introduction to Lists
+- **5 min — Bell Ringer:** "How could you store a list of your 5 favorite foods in a single variable?"
+- **12 min — Mini-Lesson:**
+  - Introduce lists as mutable, ordered collections: `my_list = ["apple", 5, True]`.
+  - Demonstrate creating lists, accessing items with indexing `my_list[0]`.
+  - Show how to modify lists: `.append(item)` to add to the end, `.remove(item)` to remove the first matching item, and `del my_list[index]` to remove by position.
+  - Show how to iterate through a list: `for item in my_list:`.
+- **25 min — Mini-Lab: Top-5 Favorites Manager**
+  - Create a program that stores a list of favorite things (movies, games, etc.).
+  - The program should have a menu to: 1. Show all favorites, 2. Add a new favorite, 3. Remove a favorite.
+- **3 min — Exit Ticket:** "What's the difference between `.append()` and `.remove()`?"
+
+### Week 11, Session C (Optional): Deeper Dive into Sequences
+- **15 min — Mini-Lesson:**
+  - **Searching:** The `in` keyword (`if "apple" in my_list:`). The `.index()` method to find the position of an item.
+  - **String/List Conversion:** `.split()` to turn a string into a list of words. `.join()` to turn a list of strings back into a single string.
+  - **Lists of Lists:** Introduce a 2D list to represent a grid, like a tic-tac-toe board. `board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]`. Access with `board[row][col]`.
+- **25 min — Practice:**
+  - Use `.split()` and a `for` loop to count the number of words in a sentence.
+  - Create a tic-tac-toe board and write code to place an "X" in the middle square (`board[1][1] = "X"`).
+
+---
+
+### Week 12, Session A: Project - Word Scrambler
+- **15 min — Project Kickoff: Word Scrambler**
+  - **Goal:** Create a game that takes a word, scrambles its letters, and asks the player to guess the original word.
+  - **Key Logic:**
+    1.  Get a word.
+    2.  Turn the string into a list of its letters (`list(word)`).
+    3.  Use `random.shuffle()` to scramble the list of letters.
+    4.  Turn the list back into a string (`"".join(shuffled_list)`).
+    5.  Make sure the scrambled word isn't the same as the original!
+- **30 min — Implementation:** Students use a starter file to begin building the game. Focus on getting the scrambling logic to work first.
+
+### Week 12, Session B: Project - Playlist Organizer
+- **15 min — Project Kickoff: Playlist Organizer**
+  - **Goal:** Create a program to manage a music playlist. It should be menu-driven and robust.
+  - **Key Logic:**
+    1.  Store the playlist in a list.
+    2.  Use a `while` loop for the main menu.
+    3.  Implement functions for: showing the playlist (with numbers), adding a song, removing a song (by number), and exiting.
+- **30 min — Implementation:** Students build the core functions for adding, removing, and showing songs.
+
+### Week 12, Session C (Optional): UX Polish
+- **Focus:** Improving the user experience of the projects.
+- **Task:**
+  - **Numbered Menus:** When showing the playlist, use a `for` loop with `enumerate` or a counter to print `1. Song A`, `2. Song B`, etc. This makes removing by number easier.
+  - **Error Messages:** Add checks to handle bad input. What if the user tries to remove song #99 from a list of 5? What if they type text instead of a number?
+  - **Sample Data:** Pre-populate the playlist with a few songs so it's not empty when the program starts.
+
+---
+
+### Week 13, Session A: Project - Hangman Lite
+- **15 min — Project Kickoff: Hangman Lite**
+  - **Goal:** Create a simplified version of Hangman.
+  - **Key Logic:**
+    1.  Have a secret word. Create a "display" list of underscores (`_`) of the same length.
+    2.  Loop while the player has guesses left.
+    3.  In each turn, show the display list (joined into a string) and ask for a letter guess.
+    4.  Check if the guessed letter is in the secret word.
+    5.  If it is, loop through the secret word and replace the underscores in the display list at the correct positions.
+    6.  If not, decrease the number of guesses left.
+- **30 min — Implementation:** Students focus on setting up the lists and the main game loop.
+
+### Week 13, Session B: Submission and Reflection
+- **20 min — Final Polish:** Students choose **two of the three projects** (Scrambler, Playlist, Hangman) to finalize and submit. They should add comments and a docstring explaining their main file.
+- **20 min — Peer Playtest:** Students swap project links with a partner and test one of their partner's projects, providing simple feedback.
+- **5 min — Submission & Reflection:** Students submit their two chosen projects and write a short reflection on which data type (string or list) they found more useful for their favorite project and why.
+
+### Week 13, Session C (Optional): Extensions
+- **Focus:** Adding advanced features to the completed projects.
+- **Task:**
+  - **Hangman:** Add a list of random words to choose from. Draw the classic ASCII art Hangman figure for each wrong guess.
+  - **Playlist Organizer:** Add a function to shuffle the playlist (`random.shuffle()`).
+  - **Word Scrambler:** Add a scoring system or a timer.
+
+---
+
+## Starter Files (Brief Examples)
+
+### `word_scrambler_starter.py`
+```python
+import random
+
+word = "python"
+# 1. Convert the word to a list of characters
+word_list = list(word)
+
+# 2. Shuffle the list
+random.shuffle(word_list)
+
+# 3. Join the list back into a string
+scrambled_word = "".join(word_list)
+
+print(f"Unscramble the word: {scrambled_word}")
+# ... game logic continues ...
+```
+
+### `playlist_starter.py`
+```python
+playlist = ["Bohemian Rhapsody", "Stairway to Heaven", "Hotel California"]
+
+while True:
+    print("\n1. Show Playlist\n2. Add Song\n3. Remove Song\n4. Exit")
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        print("\n--- Your Playlist ---")
+        # TODO: Use a for loop to print each song
+        pass
+    # ... other elif blocks ...
+    elif choice == "4":
+        break
+```
+
+### `hangman_starter.py`
+```python
+secret_word = "developer"
+display_list = []
+for letter in secret_word:
+    display_list.append("_")
+
+guesses_left = 7
+
+while guesses_left > 0:
+    # Join the list to show the user's progress
+    print(" ".join(display_list))
+    guess = input("Guess a letter: ").lower()
+
+    # TODO: Check if the guess is in the word and update display_list
+    # or decrease guesses_left
+    if guess not in secret_word:
+        guesses_left -= 1
+        print(f"Wrong! You have {guesses_left} guesses left.")
+
+    # Check for win/loss conditions
+    # ...
+```
