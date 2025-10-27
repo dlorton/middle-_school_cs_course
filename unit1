@@ -1,0 +1,199 @@
+# Unit 1 Implementation Guide — Values, Variables, and Input
+For 45-minute class periods (Weeks 2–3). This guide expands on the concepts, sessions, and the Mad Libs project.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 1
+- Students can define and use variables to store data.
+- Students can differentiate between `string`, `int`, and `float` data types.
+- Students can use `input()` to get information from a user.
+- Students can use type conversion (`int()`, `float()`, `str()`) to use input in calculations.
+- Students can format output using f-strings.
+- Students will build and submit a complete, multi-step program: the Mad Libs Generator.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Variables:** Think of them as labeled boxes or containers where you store information. You give the box a name (the variable name) and put something inside it (the value).
+  - *Analogy:* A box labeled `player_score` holding the number `100`.
+- **Data Types:** The *kind* of information you're storing.
+  - `str` (string): Text, words, or any characters inside quotes. e.g., `"hello"`, `"Player 1"`, `"123"`.
+  - `int` (integer): Whole numbers for counting. e.g., `10`, `-5`, `0`.
+  - `float` (floating-point number): Numbers with decimals, for precise measurements. e.g., `98.6`, `3.14`, `0.5`.
+- **Expressions:** Using math operators (`+`, `-`, `*`, `/`) to ask Python to calculate something.
+- **`input()` function:** The way your program asks the user a question and waits for them to type an answer. **Crucially, `input()` always gives you back a `string`!**
+- **Type Conversion:** Changing a value from one type to another.
+  - `int("5")` turns the text "5" into the number `5`.
+  - `str(100)` turns the number `100` into the text `"100"`.
+- **f-strings:** The easiest way to mix variables and text in a `print` statement. You put an `f` before the first quote and wrap your variable names in `{curly_braces}`.
+
+---
+
+## Materials and Prep
+- Projector to demo code snippets and the Mad Libs project.
+- Slides or board bullets for key concepts.
+- A simple Mad Libs story template written out for the project.
+- Starter code for the Mad Libs project (optional, but recommended).
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 2, Session A: Variables and Expressions
+- **5 min — Bell Ringer:**
+  - On the board:
+    1. `print(5 + 3)`
+    2. `print("5" + "3")`
+  - Ask: "Predict the output for each. Why are they different?" (This hooks the idea of number vs. text).
+- **12 min — Mini-Lesson:**
+  - Introduce variables (`player_name = "Alex"`, `score = 0`).
+  - Explain `str`, `int`, `float`. Show how quotes make things a string.
+  - Demo expressions: `final_score = 100 + 50`, `price = 5 * 1.50`.
+  - Introduce f-strings: `print(f"Welcome, {player_name}! Your score is {score}.")`
+- **25 min — Guided Practice:**
+  - **Task 1: Tip Calculator Snippet.** Students write code to calculate a 20% tip on a $55 meal.
+    ```python
+    meal_cost = 55
+    tip_percentage = 0.20
+    tip_amount = meal_cost * tip_percentage
+    total_bill = meal_cost + tip_amount
+    print(f"Meal: ${meal_cost}, Tip: ${tip_amount}, Total: ${total_bill}")
+    ```
+  - **Task 2: Temperature Converter.** Convert 80°F to Celsius. Formula: `(F - 32) * 5/9`.
+- **3 min — Exit Ticket:** "What's the difference between `score = 10` and `score = "10"`?"
+
+### Week 2, Session B: User Input and Type Conversion
+- **5 min — Bell Ringer:** "What's wrong with this code?"
+  ```python
+  # This code has a bug!
+  age = input("How old are you? ")
+  age_in_ten_years = age + 10 # This will crash!
+  print(age_in_ten_years)
+  ```
+- **12 min — Mini-Lesson:**
+  - Explain the bug: `input()` gives a string, and you can't add a number to a string (`"13" + 10` is an error).
+  - Introduce type conversion: `int()`, `float()`, `str()`.
+  - Fix the bell ringer code together: `age = int(input("How old are you? "))`.
+- **25 min — Project Kickoff: Mad Libs Generator**
+  - **Explain the Goal:** The computer will ask for nouns, verbs, etc., and then use them to tell a funny story.
+  - **Step 1: Plan (on paper or in comments).** As a class or in pairs, students choose a simple story template and identify the words they need to ask for.
+    - *Example Template:* "Python is a `[ADJECTIVE]` language. It is used for `[VERB-ING]` amazing things. My favorite part is making `[PLURAL NOUN]` with it!"
+    - *Words to ask for:* ADJECTIVE, VERB-ING, PLURAL NOUN.
+  - **Step 2: Write the `input()` statements.**
+    ```python
+    # Mad Libs Plan
+    # 1. Get an adjective
+    # 2. Get a verb ending in -ing
+    # 3. Get a plural noun
+
+    print("--- Mad Libs ---")
+    adjective1 = input("Enter an adjective: ")
+    verbing1 = input("Enter a verb ending in -ing: ")
+    plural_noun1 = input("Enter a plural noun: ")
+    ```
+- **3 min — Exit Ticket:** "Write one line of code that asks for a number and stores it correctly as an `int`."
+
+### Week 2, Session C (Optional): Build Mad Libs v1
+- This session is dedicated to implementing the first version of the project.
+- **Task:** Students complete their Mad Libs by adding the final `print` statement with an f-string to tell the story.
+  ```python
+  # ... (input statements from before) ...
+
+  # The Story
+  story = f"Python is a {adjective1} language. It is used for {verbing1} amazing things. My favorite part is making {plural_noun1} with it!"
+
+  print("\n--- Your Story ---")
+  print(story)
+  ```
+- **Goal:** Have a working, testable program by the end of the session.
+
+---
+
+### Week 3, Session A: Replay Loops and Peer Review
+- **5 min — Bell Ringer:** "How could we make our Mad Libs game run more than once without hitting 'Run' again?" (Answer: a loop).
+- **12 min — Mini-Lesson:**
+  - Introduce a simple `while` loop for replaying.
+    ```python
+    play_again = "yes"
+    while play_again == "yes":
+        # ... all your game code goes here ...
+        play_again = input("Play again? (yes/no): ")
+    print("Thanks for playing!")
+    ```
+  - Explain basic input validation (checking if a string is empty). This can be a simple `if` statement.
+- **25 min — Polish and Peer Review:**
+  - Students add a replay loop to their Mad Libs project.
+  - **Peer Review:** Students swap Replit links with a partner and check for:
+    1. Does it run without errors?
+    2. Are the prompts clear?
+    3. Is the final story easy to read?
+    4. Does the replay loop work?
+- **3 min — Exit Ticket:** "What does a `while` loop do?"
+
+### Week 3, Session B: Submission and Mini-Quiz
+- **15 min — Final Polish and Submission:**
+  - Students make final adjustments based on peer feedback.
+  - They submit their project link/file along with a short reflection (e.g., "The hardest part was...," "I'm proud of...").
+- **25 min — Mini-Quiz (on paper or Google Form):**
+  1. What is a variable?
+  2. Write a line of code that stores your favorite food in a variable called `favorite_food`.
+  3. Name the three data types we learned. (`str`, `int`, `float`)
+  4. What will `print(10 / 2)` output? (Answer: `5.0` - good way to check float understanding).
+  5. What will `print("2" + "2")` output? (Answer: `"22"`)
+  6. Fix the bug in this code: `num = input("Enter a number: ")` `print(num * 3)`
+  7. Write an f-string that uses a variable `pet_name` to print "My pet's name is [name]".
+- **5 min — Review Quiz:** Go over the answers as a class.
+
+### Week 3, Session C (Optional): Extensions
+- **Task:** Choose an extension for the Mad Libs project.
+  - **Themed Packs:** Add an `if/elif/else` block at the start to let the user choose between a "space," "fantasy," or "school" story.
+  - **Random Templates:** Store several story templates in a list and use `random.choice()` to pick one. (This is a great preview for lists and the `random` module).
+  - **Better Validation:** Use a `while` loop to make sure the user doesn't enter a blank space for a word.
+
+---
+
+## Mad Libs Project Starter File (`madlibs_starter.py`)
+You can provide this to students to help them focus on the logic.
+
+```python
+# madlibs_starter.py
+# Author: [Your Name Here]
+
+# --- Part 1: Plan Your Story ---
+# In the comments below, write a short story template.
+# Mark the words you will ask the user for with [BRACKETS].
+# Example: "I saw a [ADJECTIVE] [NOUN] that was [VERB-ING] near the school."
+#
+# Your Story Template:
+# [WRITE YOUR STORY HERE]
+#
+
+# --- Part 2: Get User Input ---
+print("--- Mad Libs: Please enter the following words ---")
+
+# Create a variable for each word in your template and use input() to ask the user for it.
+# Example:
+# adjective1 = input("Enter an adjective: ")
+#
+# Your input statements:
+# ...
+# ...
+
+
+# --- Part 3: Build and Print the Story ---
+# Use an f-string to combine your story template and the user's words.
+# Store the final story in a variable called `final_story`.
+
+# final_story = f"..."
+
+
+# Print the final story to the screen!
+print("\n--- Your Amazing Story! ---")
+# print(final_story)
+
+
+# --- (Optional) Extension: Add a replay loop ---
+```
