@@ -1,0 +1,222 @@
+# Unit 7 Implementation Guide — Graphics with Turtle
+For 45-minute class periods (Weeks 16–17). This guide expands on using the Turtle module for drawing, coordinates, and event-driven programming, focusing on the projects: Logo Design, Etch-a-Sketch, or Turtle Race.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 7
+- Students can control a turtle's properties: `color`, `pensize`, `speed`.
+- Students can navigate the Cartesian coordinate plane using `goto(x, y)`.
+- Students can use loops to create complex, repeating patterns and regular shapes.
+- Students can use functions to create reusable drawing components.
+- Students can create an **event-driven** program that responds to user key presses.
+- Students will build a complete, interactive, or generative graphics project.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **The Turtle Screen:** A canvas for drawing. The center is the origin, `(0, 0)`. The x-axis goes left (negative) and right (positive), and the y-axis goes down (negative) and up (positive).
+- **The Turtle (or Pen):** Your drawing cursor. It has properties that you can change:
+  - **State:** Its current position, its heading (the direction it's facing in degrees), and whether its pen is up or down.
+- **Pen Control:**
+  - `penup()`: Lifts the pen, so the turtle can move without drawing a line.
+  - `pendown()`: Puts the pen down, so it draws when it moves.
+  - `pensize(width)`: Changes the thickness of the line.
+  - `pencolor("color")`: Changes the drawing color.
+- **Movement Commands:**
+  - `forward(distance)`: Move forward by a number of pixels.
+  - `left(angle)` / `right(angle)`: Rotate the turtle by a number of degrees.
+  - `goto(x, y)`: Instantly move to a specific coordinate.
+- **Event-Driven Programming:** Making your program *listen* for events (like a key press) and run a specific function in response. This is different from our previous programs that just ran from top to bottom.
+  - `screen.listen()`: Tells the screen to start paying attention to events.
+  - `screen.onkey(function_name, "key_name")`: Binds a function to a specific key. For example, `onkey(move_forward, "w")` will run the `move_forward` function whenever the 'w' key is pressed.
+
+---
+
+## Materials and Prep
+- Projector for live demos of turtle drawing and key bindings.
+- Slides or board notes with a diagram of the turtle coordinate plane.
+- Starter code for the three project choices.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 16, Session A: Turtle Basics and Looped Shapes
+- **5 min — Bell Ringer:** "If you wanted to draw a perfect square, what two commands would you need to repeat four times?" (Answer: `forward()` and `right(90)`).
+- **15 min — Mini-Lesson (Review and New):**
+  - Quickly review `forward`, `left`, `right`, `pencolor`.
+  - Introduce the coordinate system with `goto(x, y)`.
+  - Introduce `penup()` and `pendown()` for moving without drawing.
+  - Show how to use a `for` loop to draw a regular polygon (square, triangle, hexagon).
+- **20 min — Guided Practice:**
+  - **Task 1: Regular Polygons.** Write a function `draw_polygon(sides, length)` that can draw any regular polygon.
+  - **Task 2: Random Walk.** Create a turtle that moves in a random direction (`left` or `right`) for a random distance, over and over in a loop, changing its color each time.
+- **5 min — Exit Ticket:** "What's the difference between `forward(50)` and `goto(50, 0)`?"
+
+### Week 16, Session B: Project Choice and Planning
+- **15 min — Project Kickoff:**
+  - **Present the three project options:**
+    1.  **Logo Design:** Design and draw a logo for a fictional company, school club, or yourself. This project focuses on **composition** and using functions to build a complex static image.
+    2.  **Etch-a-Sketch:** Create a program where you can draw freely on the screen using the arrow keys. This project focuses on **event-driven programming**.
+    3.  **Turtle Race:** Create a game where multiple turtles race to a finish line. The winner is determined by random chance. This project focuses on managing **multiple objects (turtles)** and state.
+  - **Step 1: Plan.** Students choose a project and sketch their idea on paper.
+    - *Logo:* What shapes will you need? What colors?
+    - *Etch-a-Sketch:* What keys will do what? (e.g., arrows to move, 'c' to clear).
+    - *Race:* How many turtles? What will the track look like?
+- **30 min — Begin Implementation:** Students use the appropriate starter file to begin setting up their project's basic structure.
+
+### Week 16, Session C (Optional): Core Mechanics
+- **Focus:** Implementing the main logic for each project.
+- **Task:**
+  - **Logo Design:** Write the functions for the basic shapes in your logo (e.g., `draw_circle`, `draw_star`).
+  - **Etch-a-Sketch:** This is the key session for this project!
+    1. Define simple functions like `move_forward()`, `turn_left()`, etc.
+    2. Set up the screen to `listen()`.
+    3. Bind the functions to keys using `screen.onkey()`.
+  - **Turtle Race:** Create multiple turtle objects, give them different colors, and line them up at the starting line. Write the main `while` loop that will move them forward by random amounts.
+
+---
+
+### Week 17, Session A: Polish and User Experience
+- **10 min — Mini-Lesson: Polish**
+  - Show how to add a title with `screen.title()`.
+  - Show how to write text on the screen with `turtle.write()`. This is great for instructions, start screens, or declaring a winner.
+- **30 min — Add Polish to Projects:**
+  - **All Projects:** Add a title and your name. Use `turtle.write()` to add instructions.
+  - **Logo Design:** Refine colors and positioning to make it look clean.
+  - **Etch-a-Sketch:** Add a function to clear the screen (`screen.clear()`) and bind it to the 'c' key. Maybe add a way to change colors.
+  - **Turtle Race:** Draw a finish line. After the loop, check which turtle has the largest x-coordinate and use `turtle.write()` to declare it the winner.
+- **5 min — Exit Ticket:** "How do you make the screen listen for a key press?"
+
+### Week 17, Session B: Submission and Mini-Gallery
+- **20 min — Final Polish and Submission:**
+  - Students do a final test of their project, add comments explaining their code, and submit the link/file.
+- **20 min — Mini-Gallery Share:**
+  - The teacher projects 3-4 finished projects.
+  - Each student creator briefly explains their project:
+    - *Logo:* "I used a loop to make the star."
+    - *Etch-a-Sketch:* "I bound the 'w' key to a function that moves the turtle forward."
+    - *Race:* "Each turtle moves a random amount between 1 and 5 pixels each turn."
+- **5 min — Reflection:** "What was the most interesting or challenging part of using Turtle to make your project?"
+
+### Week 17, Session C (Optional): Extensions
+- **Focus:** Adding more advanced features.
+- **Task:**
+  - **Logo Design:** Animate your logo. For example, have parts of it spin or change color.
+  - **Etch-a-Sketch:** Add more key bindings, like changing the pen size, lifting the pen up/down, or stamping shapes.
+  - **Turtle Race:** Add obstacles on the track that turtles have to go around. Or, make it a user-controlled race where one turtle is moved by the player.
+
+---
+
+## Starter Files
+
+### `logo_design_starter.py`
+```python
+import turtle
+
+screen = turtle.Screen()
+screen.title("My Awesome Logo")
+screen.bgcolor("white")
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.hideturtle()
+
+# --- Functions to Draw Shapes ---
+def draw_circle(color, radius, x, y):
+    """Draws a filled circle at a specific location."""
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.fillcolor(color)
+    pen.begin_fill()
+    pen.circle(radius)
+    pen.end_fill()
+
+# TODO: Add functions for other shapes you need, like squares or stars.
+
+# --- Main Drawing ---
+# Call your functions here to compose your logo.
+print("Drawing logo...")
+draw_circle("blue", 50, 0, 0)
+# ... call other functions ...
+
+screen.exitonclick()
+```
+
+### `etch_a_sketch_starter.py`
+```python
+import turtle
+
+# --- Setup ---
+screen = turtle.Screen()
+screen.title("Etch-a-Sketch")
+pen = turtle.Turtle()
+pen.pensize(3)
+
+# --- Functions for Movement ---
+def move_forward():
+    pen.forward(10)
+
+def move_backward():
+    pen.backward(10)
+
+# TODO: Define functions for turning left and right.
+
+def clear_screen():
+    pen.clear()
+
+# --- Key Bindings ---
+screen.listen() # Tell the screen to listen for key presses
+screen.onkey(key="w", fun=move_forward)
+screen.onkey(key="s", fun=move_backward)
+# TODO: Bind your turn functions to the 'a' and 'd' keys.
+screen.onkey(key="c", fun=clear_screen)
+
+screen.exitonclick()
+```
+
+### `turtle_race_starter.py`
+```python
+import turtle
+import random
+
+# --- Screen Setup ---
+screen = turtle.Screen()
+screen.title("Turtle Race!")
+screen.setup(width=500, height=400)
+
+# --- Create Turtles ---
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+all_turtles = []
+y_position = -100
+
+for turtle_index in range(6):
+    new_turtle = turtle.Turtle(shape="turtle")
+    new_turtle.color(colors[turtle_index])
+    new_turtle.penup()
+    new_turtle.goto(x=-230, y=y_position)
+    y_position += 40
+    all_turtles.append(new_turtle)
+
+# --- Main Race Loop ---
+is_race_on = True
+while is_race_on:
+    for t in all_turtles:
+        # Check if a turtle has crossed the finish line
+        if t.xcor() > 230:
+            is_race_on = False
+            winner_color = t.pencolor()
+            print(f"The {winner_color} turtle is the winner!")
+            # Optional: Write the winner on the screen
+            t.write(f" Winner!", font=('Arial', 16, 'bold'))
+
+        # Move each turtle forward by a random amount
+        rand_distance = random.randint(0, 10)
+        t.forward(rand_distance)
+
+screen.exitonclick()
+```
