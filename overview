@@ -1,0 +1,334 @@
+# Middle School Intro to CS with Python — 45-Minute Scope and Sequence
+Duration: Through May (approx. 26–30 weeks)  
+Class length: 45 minutes per meeting  
+Typical cadence: 2–3 class meetings per week (adjust with optional sessions as needed)
+
+This plan converts each unit into 45-minute sessions. For each week, you’ll see Session A and Session B; use Session C when you meet 3x/week or when you need catch-up/review time.
+
+---
+
+## Class Routine (45 minutes)
+- 5 min — Bell ringer: logic puzzle, quick “predict the output,” or find-the-bug
+- 10–12 min — Mini-lesson + live demo
+- 20–25 min — Guided practice + project work (pair programming encouraged)
+- 3–5 min — Share-out + Exit ticket
+
+Tips:
+- Keep slides/demo tight; prioritize hands-on time.
+- Use timers and visible goals for each work block.
+- Maintain a “parking lot” for questions to keep flow.
+
+---
+
+## Tools and Setup
+- Platform: Replit (browser) or Thonny (desktop)
+- Graphics: turtle (built-in) and optional Pygame Zero for simple games
+- Assets: shared folder with word lists, starter code, and sprites
+- Submission: link turn-in with a short reflection (2–3 sentences)
+
+---
+
+## Competency Evidence and Rubric (quick)
+- Correctness: meets required features; runs without errors
+- Code Quality: clear names, comments/docstrings, formatting
+- Problem-Solving: appropriate use of conditionals/loops/functions/data
+- User Experience: friendly prompts, readable output, basic validation
+- Reflection: short note on what worked and what you’d improve
+
+Levels:
+- Exceeds — all criteria + stretch features
+- Meets — all required features
+- Approaching — most features, minor bugs or missing polish
+- Not Yet — major features missing or not functioning
+
+---
+
+## Pacing Overview (Units, Sessions)
+- Unit 0: Getting Started — 2–3 sessions
+- Unit 1: Values, Variables, and Input — 4–5 sessions
+- Unit 2: Decision Making — 4–5 sessions
+- Unit 3: Loops and Patterns — 6–7 sessions
+- Unit 4: Functions and Decomposition — 4–5 sessions
+- Unit 5: Strings and Lists — 6–7 sessions
+- Unit 6: Dictionaries and Modeling — 3–4 sessions
+- Unit 7: Graphics with Turtle — 4–5 sessions
+- Unit 8: Randomness, Files, and State — 3–4 sessions
+- Unit 9: Game Design (Pygame Zero or Turtle) — 6–8 sessions
+- Unit 10: Simulation & Visualization — 3–4 sessions
+- Unit 11: Final Project & Showcase — 6–8 sessions
+
+Adjust by adding/removing “Session C” weeks or using catch-up days.
+
+---
+
+## Week-by-Week 45-Minute Plan
+
+### Week 1 — Unit 0: Getting Started
+- Session A:
+  - Setup: platform accounts, workspace tour, REPL vs files
+  - print() and comments; “Hello, world!” variants
+  - Start Project: ASCII/Turtle Name Badge (sketch requirements)
+  - Exit ticket: What does print() do? What are comments for?
+- Session B:
+  - Finish Badge: include name + 3 facts; basic formatting or colors in turtle
+  - Mini-share: 2 volunteers demo
+  - Reflection: 2–3 sentences on what you learned
+- Session C (optional):
+  - Extension: align/center text, turtle shapes; create a “class poster” montage
+
+### Weeks 2–3 — Unit 1: Values, Variables, and Input
+- Session A:
+  - Types: int, float, str; expressions; f-strings
+  - Practice: tip calculator snippets; temperature converter
+- Session B:
+  - input() and type conversion; concatenation
+  - Start Project: Mad Libs Generator (plan story + inputs)
+- Session C (optional):
+  - Implement Mad Libs v1; test with partners; add formatting (line breaks)
+- Session A (next week):
+  - Add replay option; basic input validation (empty strings)
+  - Peer review checklist
+- Session B:
+  - Submit Mad Libs; reflection; mini-quiz (vars/types/print/input)
+- Session C (optional):
+  - Extension: themed Mad Libs packs; random choice of templates
+
+### Weeks 4–5 — Unit 2: Decision Making
+- Session A:
+  - if/elif/else; comparisons; Boolean operators
+  - Practice: grade classifier; movie ticket pricing
+- Session B:
+  - Multi-branch logic; simple validation patterns
+  - Project kickoff: Choose-Your-Own-Adventure (CYOA) outline
+- Session C (optional):
+  - Implement CYOA paths (3+ decision points, 2+ endings)
+- Session A (next week):
+  - Add state: simple “inventory” or score variable
+  - Test paths; fix unreachable branches
+- Session B:
+  - Submit CYOA; exit ticket: difference between if and elif
+- Session C (optional):
+  - Extension: replay loop; random events with choices
+
+### Weeks 6–8 — Unit 3: Loops and Patterns
+- Session A:
+  - for with range; while loops; off-by-one errors
+  - Practice: countdowns, times table printer
+- Session B:
+  - Nested loops; simple pattern printing
+  - Mini-project: FizzBuzz Remix (use emojis/words)
+- Session C (optional):
+  - Debugging clinic: common loop bugs; add custom rules to FizzBuzz
+- Session A (next week):
+  - Project: Number Guessing Game (too high/low; attempt counter)
+  - Plan feature list and test cases
+- Session B:
+  - Implement and test Guessing Game; add replay
+- Session C (optional):
+  - Polish: input validation, hint ranges
+- Session A (next week):
+  - Turtle looped art: spirograph/pattern drawer
+  - Decompose into repeated actions (angles, steps, colors)
+- Session B:
+  - Submit: Guessing Game + Turtle Art; reflection: loops you used
+- Session C (optional):
+  - Gallery walk: students annotate code with comments
+
+### Weeks 9–10 — Unit 4: Functions and Decomposition
+- Session A:
+  - def, parameters, return values; scope basics
+  - Practice: area/perimeter functions; random name picker
+- Session B:
+  - Top-down design; helper functions; docstrings
+  - Project choice: Mini Art Gallery (turtle) or Menu Calculator
+- Session C (optional):
+  - Start implementing 3+ functions; test each in isolation
+- Session A (next week):
+  - Compose functions into final program; add a simple menu
+- Session B:
+  - Submit; quick code review on naming and reuse
+- Session C (optional):
+  - Extension: function library (import into multiple files)
+
+### Weeks 11–13 — Unit 5: Strings and Lists
+- Session A:
+  - Strings: indexing, slicing, methods (lower, split, join)
+  - Practice: palindrome checker; censor a word
+- Session B:
+  - Lists: create, append, remove; iterate and count items
+  - Mini-lab: top-5 favorites manager
+- Session C (optional):
+  - Searching: index/find; membership tests; list of lists intro
+- Session A (next week):
+  - Project: Word Scrambler (shuffle letters; avoid original word if possible)
+- Session B:
+  - Project: Playlist Organizer (add/remove/show; pretty print)
+- Session C (optional):
+  - UX polish: numbered menus; error messages; save sample data in code
+- Session A (next week):
+  - Project: Hangman Lite (underscore display; guesses remaining)
+- Session B:
+  - Submit 2 of 3 (Scrambler/Playlist/Hangman); reflection on strings/lists
+- Session C (optional):
+  - Extension: ASCII art for hangman; random word list
+
+### Weeks 14–15 — Unit 6: Dictionaries and Modeling
+- Session A:
+  - Dicts: create, access, update; counting frequencies
+  - Practice: letter/word frequency in a phrase
+- Session B:
+  - Project: Emoji/Word Counter with ASCII bars
+- Session C (optional):
+  - Formatting lab: scale bars; sort by count
+- Session A (next week):
+  - Project: Flashcards/Quizzer (dict of Q->A; score + feedback)
+- Session B:
+  - Submit; exit ticket: when to choose dict vs list?
+- Session C (optional):
+  - Extension: categories of flashcards; review wrong answers
+
+### Weeks 16–17 — Unit 7: Graphics with Turtle
+- Session A:
+  - Coordinates, pen control, colors; loops for shapes
+  - Practice: regular polygons; random walk
+- Session B:
+  - Project choice: Logo Design, Etch-a-Sketch, or Turtle Race
+- Session C (optional):
+  - Implement core mechanics; key controls (WASD/arrows)
+- Session A (next week):
+  - Add polish: color themes, start screen, declared winner/reset
+- Session B:
+  - Submit; mini-gallery share
+- Session C (optional):
+  - Extension: obstacles or checkpoints; pen up/down modes
+
+### Weeks 18–19 — Unit 8: Randomness, Files, and State
+- Session A:
+  - random: randint, choice, shuffle; seeding for tests
+  - Practice: random username generator with rules
+- Session B:
+  - Files (if allowed): read/write text; fallback simulated “save” as variables
+- Session C (optional):
+  - Project: Password Generator (length, char sets; no ambiguous chars)
+- Session A (next week):
+  - Project: High Score Tracker (add to earlier game if possible)
+- Session B:
+  - Submit; reflection on persistence/state
+- Session C (optional):
+  - Extension: export/import settings file
+
+### Weeks 20–23 — Unit 9: Game Design (Pygame Zero or Turtle)
+- Session A:
+  - Game loop concepts: update/draw; handling input
+  - Practice: move a sprite; spawn falling objects
+- Session B:
+  - Collision detection; scoring; win/lose conditions
+  - Project kickoff: Fruit Catcher or Space Runner
+- Session C (optional):
+  - Implement core loop; get one full gameplay cycle working
+- Session A (next week):
+  - Add levels/difficulty or timers; playtest with feedback checklist
+- Session B:
+  - Add sound, simple art, instructions screen
+- Session C (optional):
+  - Performance pass: keep 60 fps; cap spawns; clean reset
+- Session A (next week):
+  - High score persistence (if files allowed) or session record
+- Session B:
+  - Submit and present mini-demos; critique for clarity and polish
+- Session C (optional):
+  - Stretch: power-ups, multiple lives, pause/resume
+
+### Weeks 24–25 — Unit 10: Simulation and Visualization
+- Session A:
+  - Experiments: trials, tracking counts; simple stats (mean, max)
+  - Practice: coin flip streaks; rock-paper-scissors fairness
+- Session B:
+  - Project: Dice Simulation & Probability Explorer
+  - ASCII histograms; compare 1d6 vs 2d6 shapes
+- Session C (optional):
+  - Reflection paragraph: what did the distribution show?
+- Session A (next week):
+  - Extend with parameters (rolls, dice count); rerun experiments
+- Session B:
+  - Submit; exit ticket: why does 2d6 peak at 7?
+- Session C (optional):
+  - Extension: visualize with scaled bars or simple turtle bars
+
+### Weeks 26–30 — Unit 11: Final Project and Showcase
+- Session A:
+  - Pitch: problem, audience, must-have features
+  - Milestones: MVP by end of Week 28
+- Session B:
+  - Prototype: core loop or main interaction working
+- Session C (optional):
+  - Feedback circle; update task list; risk check
+- Session A (next week):
+  - Build: add features; test; keep a bug/feature log
+- Session B:
+  - Polish: UX, instructions/help screen, credits for assets
+- Session C (optional):
+  - Performance and error handling; input validation pass
+- Session A (next week):
+  - Finalize: README with how-to-run; screenshots or GIFs
+- Session B:
+  - Showcase: live demos; peer feedback forms; reflection (what I learned / next steps)
+
+---
+
+## Project Requirements Summary (for posting in class)
+- Mad Libs: 6–10 inputs; clear formatting; optional replay
+- CYOA: 3+ decisions; 2+ endings; optional inventory/score
+- Loops:
+  - Guessing Game: feedback + attempt count + replay
+  - Turtle Art: loop-driven patterns; at least 2 parameters
+- Functions Project:
+  - Mini Art Gallery: 3+ drawing functions composed
+  - OR Menu Calculator: 4+ operations as separate functions
+- Strings/Lists:
+  - Pick 2: Word Scrambler, Playlist Organizer, Hangman Lite
+- Dicts:
+  - Emoji/Word Counter with ASCII bars; Flashcards/Quizzer with score
+- Turtle Graphics:
+  - Pick 1: Logo, Etch-a-Sketch, or Turtle Race
+- Random/Files:
+  - Password Generator; High Score Tracker (or simulated)
+- Game:
+  - Fruit Catcher or Space Runner (movement, collision, scoring, win/lose, instructions)
+- Simulation:
+  - Dice Explorer with ASCII histogram and short write-up
+- Final Project:
+  - Proposal, MVP, polish, README, presentation
+
+---
+
+## Differentiation and Supports
+- Scaffolds: starter files with TODOs; checklists; pair programming
+- Extensions: extra levels, better visuals, more data views, higher difficulty
+- Unplugged: sorting networks, binary bracelets, algorithm role-play
+- Accessibility: high-contrast colors; keyboard-only controls; speed toggles
+
+---
+
+## 45-Minute “Emergency Plan” (Shorten any session)
+- Keep bell ringer to 3 minutes
+- Demo only one example; record or link a second
+- Convert independent practice to pair programming
+- Use exit ticket as a Google Form/quick poll to save time
+
+---
+
+## Ready-to-Use Starters You Might Create
+- 00_setup_starter.py (print, comments template)
+- madlibs_starter.py (input prompts and story template)
+- cyoa_skeleton.py (branching structure with TODOs)
+- loops_playground.py (range/while patterns)
+- turtle_gallery.py (function stubs)
+- strings_lists_lab.py (exercises)
+- dict_counter.py (frequency counting)
+- etch_a_sketch.py (key bindings scaffold)
+- password_gen.py (character sets provided)
+- pgzero_game.py or turtle_game.py (game loop template)
+- dice_sim.py (histogram helper)
+
+If you’d like, I can generate any of these starter files tailored to your platform (Replit/Thonny) and class norms.
