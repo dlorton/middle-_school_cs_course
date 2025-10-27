@@ -1,0 +1,186 @@
+# Unit 2 Implementation Guide — Decision Making
+For 45-minute class periods (Weeks 4–5). This guide expands on `if/elif/else`, Boolean logic, and the Choose-Your-Own-Adventure (CYOA) project.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 2
+- Students can use `if`, `elif`, and `else` to control the flow of a program.
+- Students can use comparison operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) to form conditions.
+- Students can use Boolean operators (`and`, `or`, `not`) to create compound conditions.
+- Students understand how to nest `if` statements to create branching paths.
+- Students can plan and build a multi-step interactive story (CYOA) with multiple endings.
+- Students can manage "state" by using a variable to track an inventory item or score.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Conditionals (`if` statements):** Code that only runs *if* a certain condition is true. It's like asking a "yes or no" question.
+  - *Analogy:* **If** it is raining, **then** I will take an umbrella. The action (taking an umbrella) only happens if the condition (raining) is true.
+- **`if/else`:** An `if` statement with a backup plan. If the condition is true, do one thing; `else` (otherwise), do another thing.
+  - *Analogy:* **If** I have enough money, I'll buy the video game. **Else**, I'll just go home.
+- **`if/elif/else`:** A chain of checks for handling more than two possibilities. Python checks them in order.
+  - `if`: The first check.
+  - `elif`: (short for "else if") If the first check was false, try this one. You can have many `elif`s.
+  - `else`: The "catch-all" at the end if none of the above were true.
+- **Comparison Operators:** The symbols we use to ask questions.
+  - `==` : Is equal to? (e.g., `answer == "yes"`)
+  - `!=` : Is not equal to?
+  - `>` : Is greater than?
+  - `<` : Is less than?
+- **Boolean Operators:** For combining or changing conditions.
+  - `and`: Both conditions must be true. (e.g., `if temperature > 70 and is_sunny == True:`)
+  - `or`: At least one of the conditions must be true.
+  - `not`: Flips the result (makes `True` into `False` and vice versa).
+
+---
+
+## Materials and Prep
+- Projector for live demos.
+- Slides or board notes for key concepts and operator symbols.
+- A simple CYOA story map sketched out to use as an example.
+- Starter code for the CYOA project (`cyoa_starter.py`).
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 4, Session A: `if/else` and Comparisons
+- **5 min — Bell Ringer:**
+  - On the board:
+    ```python
+    secret_number = 7
+    guess = input("Guess the number: ") # User enters 7
+    print(secret_number == guess)
+    ```
+  - Ask: "What will this print? `True` or `False`? Why?" (Answer: `False`, because `input()` gives a string `"7"`, which is not equal to the integer `7`).
+- **12 min — Mini-Lesson:**
+  - Introduce the `if/else` structure.
+  - Go over all comparison operators (`==`, `!=`, `>`, `<`, etc.). Emphasize the difference between `=` (assignment) and `==` (comparison).
+  - Live code a simple "age checker" for a movie rating.
+- **25 min — Guided Practice (Pair Programming):**
+  - **Task 1: Grade Classifier.** Ask for a score (0-100). If the score is 60 or greater, print "You passed!"; else, print "Keep trying!".
+  - **Task 2: Movie Ticket Pricing.** If age is under 12, the price is $8. Otherwise, the price is $12. Print the final price.
+- **3 min — Exit Ticket:** "What is the difference between `=` and `==` in Python?"
+
+### Week 4, Session B: `elif`, Booleans, and Project Kickoff
+- **5 min — Bell Ringer:** "How would we write a grade classifier for A, B, C, D, F? An `if/else` isn't enough."
+- **12 min — Mini-Lesson:**
+  - Introduce `elif` to handle multiple distinct cases (e.g., score > 90 -> A, score > 80 -> B, etc.).
+  - Introduce `and` and `or` to combine conditions. Example: `if choice == "1" or choice == "go left":`.
+- **25 min — Project Kickoff: Choose-Your-Own-Adventure (CYOA)**
+  - **Explain the Goal:** Create an interactive story where the user's choices determine the outcome. It must have at least **3 decision points** and **2 different endings**.
+  - **Step 1: Plan (Story Map).** This is the most important step! Students must draw a "tree" or "flowchart" showing the story's path.
+    - Start with a single box: "The Beginning."
+    - Branch out with two choices (e.g., "Go left" vs. "Go right").
+    - Each choice leads to a new box with a new situation and new choices.
+    - Some paths should lead to an "Ending" box.
+    - *Teacher Demo:* Draw a simple map on the board (e.g., "You're at a crossroads. A path leads into a dark forest, another towards a sunny meadow...").
+- **3 min — Exit Ticket:** "When would you use `elif` instead of just another `if`?"
+
+### Week 4, Session C (Optional): Implement CYOA Paths
+- This session is dedicated to translating the story map into code.
+- **Task:** Students use the `cyoa_starter.py` file to write the code for their story's main path.
+- **Focus:** Use nested `if/else` statements to create the branches.
+  ```python
+  choice1 = input("Do you go into the forest or the meadow? (forest/meadow): ")
+  if choice1 == "forest":
+      print("You enter the dark forest...")
+      choice2 = input("You hear a noise. Do you investigate or hide? (investigate/hide): ")
+      if choice2 == "investigate":
+          print("It was a friendly squirrel! THE END.")
+      else:
+          print("You hide, but a dragon finds you! THE END.")
+  else: # This is the meadow path
+      print("You walk into the sunny meadow...")
+      # ... more choices here ...
+  ```
+- **Goal:** Have at least one complete path from start to finish working.
+
+---
+
+### Week 5, Session A: Adding "State" and Testing
+- **5 min — Bell Ringer:** "In our story, how could we remember if the player found a key in one room to use in another?"
+- **12 min — Mini-Lesson:**
+  - Introduce the concept of a "state variable." This is just a regular variable declared at the top of the program to track something important.
+  - **Example:** `has_key = False`. When the player finds the key, you set `has_key = True`. Later, you can check `if has_key == True:`.
+- **25 min — Implement and Test:**
+  - **Task 1: Add State.** Students add a simple inventory or score variable to their CYOA. (e.g., `gold_coins = 0`, `has_magic_sword = False`).
+  - **Task 2: Test All Paths.** Students must systematically test every possible choice in their story to make sure there are no "dead ends" (unreachable code) and that every path leads to a proper ending.
+- **3 min — Exit Ticket:** "What is a 'state variable' used for?"
+
+### Week 5, Session B: Submission and Reflection
+- **15 min — Final Polish:**
+  - Students add comments, clean up their `print` statements, and make sure their story is easy to follow.
+- **25 min — Submission and Peer Playtest:**
+  - Students submit their project link/file.
+  - They swap links with a partner and play through their partner's story, providing feedback.
+- **5 min — Exit Ticket:** "In your own words, what is the difference between `if` and `elif`?" (Answer should relate to `elif` only being checked if the first `if` was false, while a second `if` is always checked).
+
+### Week 5, Session C (Optional): Extensions
+- **Task:** Choose an extension for the CYOA project.
+  - **Replay Loop:** Wrap the entire story in a `while` loop to allow the user to play again.
+  - **Random Events:** Use `import random` and `random.randint(1, 4)` to add a chance of a special event happening. `if roll == 1: print("A sudden storm appears!")`.
+  - **More Complex State:** Add a health or energy variable that changes based on choices. `if choice == "fight": health -= 10`.
+
+---
+
+## CYOA Project Starter File (`cyoa_starter.py`)
+```python
+# cyoa_starter.py
+# Author: [Your Name Here]
+
+# --- Part 1: Plan Your Story ---
+# Before you code, map out your story's branches and endings in the comments.
+#
+# Example Map:
+#
+# START -> Crossroads
+#   Choice: forest or meadow?
+#   1. forest -> Hear a noise
+#       Choice: investigate or hide?
+#       a. investigate -> Find a friendly squirrel -> END 1
+#       b. hide -> A dragon finds you -> END 2
+#   2. meadow -> Find a flower
+#       Choice: pick it or leave it?
+#       a. pick it -> It's a magic flower! -> END 3
+#       b. leave it -> You walk home peacefully -> END 4
+#
+# Your Story Map:
+# [STUDENTS DRAW THEIR MAP HERE]
+#
+
+# --- Part 2: Setup State Variables (if any) ---
+# These are variables that remember things for your whole story.
+# Example:
+# has_key = False
+# score = 0
+
+
+# --- Part 3: Code Your Story ---
+print("--- Welcome to Your Adventure! ---")
+print("You are standing at a crossroads. A dark forest is to your left, and a sunny meadow to your right.")
+
+# First Decision
+choice1 = input("Do you go left or right? ")
+
+if choice1 == "left":
+    print("You chose the forest...")
+    # --- Forest Path ---
+    # Add your next print statement and input prompt here.
+    # Then, add a nested if/elif/else to handle the next choice.
+
+elif choice1 == "right":
+    print("You chose the meadow...")
+    # --- Meadow Path ---
+    # Add your next print statement and input prompt here.
+    # Then, add a nested if/elif/else to handle the next choice.
+
+else:
+    print("That wasn't an option! A giant eagle swoops down and carries you away. THE END.")
+
+
+print("\n--- Thanks for playing! ---")
+```
