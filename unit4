@@ -1,0 +1,211 @@
+# Unit 4 Implementation Guide — Functions and Decomposition
+For 45-minute class periods (Weeks 9–10). This guide expands on creating and using functions, problem decomposition, and the unit's projects: Mini Art Gallery or Menu Calculator.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 4
+- Students can define and call their own functions using `def`.
+- Students can use **parameters** to pass data *into* a function.
+- Students can use `return` to send data *out of* a function.
+- Students understand the concept of **decomposition**: breaking a large problem into smaller, manageable functions.
+- Students can write simple **docstrings** to explain what their functions do.
+- Students can build a complete program by composing (calling) multiple helper functions.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Functions:** A named block of reusable code that performs a specific task. Think of it as a recipe or a mini-program.
+  - *Analogy:* A recipe for "making a sandwich." You can "call" that recipe anytime you're hungry, instead of re-writing the steps every time.
+- **`def` (Define):** The keyword you use to create a new function.
+- **Parameters:** The ingredients you give to your function. They are variables listed inside the parentheses in the function definition.
+  - *Analogy:* In a `make_sandwich(bread_type, filling)` function, `bread_type` and `filling` are the parameters. You can give it "wheat" and "turkey" one time, and "rye" and "cheese" another time.
+- **`return`:** How a function gives an answer or result back to the code that called it.
+  - *Analogy:* A calculator's `=` button. A function like `add(2, 3)` does the work and `return`s the value `5`. If a function doesn't `return` anything, it's like it does a task but doesn't hand you anything back.
+- **Scope (Local Variables):** Variables created *inside* a function only exist inside that function. They are "local" to it.
+  - *Analogy:* What happens in Vegas, stays in Vegas. Variables created inside a function are temporary and disappear when the function is done. This prevents functions from accidentally messing with each other's variables.
+- **Decomposition:** The process of breaking a big, complicated problem into smaller, simpler problems. We solve the small problems by writing small, simple functions.
+- **Docstrings (`"""..."""`):** A special comment placed right after the `def` line that explains what a function does, what its parameters are, and what it returns. It's the "user manual" for your function.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Slides or board notes for the anatomy of a function (`def`, name, parameters, body, `return`).
+- Starter code for the Mini Art Gallery and Menu Calculator projects.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 9, Session A: `def`, Parameters, and `return`
+- **5 min — Bell Ringer:** "We've used `print()` and `input()`. What do you think happens inside the `print()` function? Is it just one line of code or many?"
+- **15 min — Mini-Lesson:**
+  - Introduce the "why" of functions: **DRY** (Don't Repeat Yourself).
+  - Show the anatomy of a simple function: `def greet(name):`.
+  - Explain parameters (`name`) vs. arguments (`"Alice"` when you call `greet("Alice")`).
+  - Explain `return` and show how to capture the result in a variable: `result = add(5, 10)`.
+- **20 min — Guided Practice:**
+  - **Task 1: Area Function.** Write a function `calculate_area(width, height)` that takes two parameters and `return`s their product. Call it and print the result.
+  - **Task 2: Random Name Picker.** Write a function `pick_random_name(name1, name2, name3)` that uses `random.choice()` to `return` one of the three names.
+- **5 min — Exit Ticket:** "What is the difference between a parameter and a return value?"
+
+### Week 9, Session B: Decomposition and Project Kickoff
+- **5 min — Bell Ringer:** "Look at the code for your Turtle Art or Guessing Game. Can you find a chunk of code you repeated? What could you turn into a function?"
+- **12 min — Mini-Lesson:**
+  - Introduce **Top-Down Design**: Start with the big goal, then break it into smaller steps, and break those steps down again until they are simple enough to code as one function.
+  - Introduce **docstrings** as a way to plan and document your code.
+- **25 min — Project Choice and Planning:**
+  - **Present two project options:**
+    1.  **Mini Art Gallery:** Use Turtle and functions to draw a scene composed of multiple shapes (e.g., a house, a sun, a tree).
+    2.  **Menu Calculator:** Create a text-based calculator that uses a menu and functions for each operation (add, subtract, etc.).
+  - **Step 1: Decompose.** As a class or in pairs, students choose a project and break it down into functions.
+    - *Art Gallery:* `draw_house()`, `draw_sun()`, `draw_tree()`, `move_to_start_position()`.
+    - *Calculator:* `show_menu()`, `add(a, b)`, `subtract(a, b)`, `get_two_numbers()`.
+  - **Step 2: Write Docstrings.** Students use the starter file to write the docstrings for each function *before* writing the code inside them.
+- **3 min — Exit Ticket:** "What is the first thing you should write after a `def` line?" (Answer: a docstring).
+
+### Week 9, Session C (Optional): Implement Functions in Isolation
+- **Focus:** Write the code for each individual helper function and test it to make sure it works on its own.
+- **Task:**
+  - **Art Gallery:** Write the code for `draw_square(size)` and test it. Then write `draw_triangle(size)` and test it. Then use those to help write `draw_house()`.
+  - **Calculator:** Write the `add(a, b)` function and test it with `print(add(5, 3))`. Do the same for `subtract`, `multiply`, and `divide`.
+- **Goal:** Have 3+ working functions that have been tested independently.
+
+---
+
+### Week 10, Session A: Composition and Menus
+- **5 min — Bell Ringer:** "You have a working `draw_house()` and `draw_sun()` function. How do you get them to appear in the same picture?" (Answer: Just call them one after the other).
+- **15 min — Mini-Lesson:**
+  - Explain **Composition**: building a complete program by calling your small, tested helper functions from a "main" part of your script.
+  - Show how to create a simple text menu using a `while` loop and `if/elif/else` to call the correct function based on user input.
+- **25 min — Build the Main Program:**
+  - **Art Gallery:** Students write the main part of their script that calls their drawing functions, using `penup()` and `goto()` to position each element in the scene.
+  - **Calculator:** Students write the main `while` loop that shows the menu, gets the user's choice, gets the numbers, calls the correct operation function, and prints the result.
+- **5 min — Exit Ticket:** "What does it mean to 'compose' functions?"
+
+### Week 10, Session B: Submission and Code Review
+- **20 min — Final Polish and Submission:**
+  - Students add comments, check that all functions have docstrings, and test their final program one last time.
+  - Submit the project link/file.
+- **20 min — Quick Code Review:**
+  - The teacher projects 1-2 examples of each project.
+  - **Focus on:**
+    - **Good Function Names:** Are they clear, verb-based names like `draw_square` or `calculate_sum`?
+    - **Reusability:** Did they successfully reuse a function (e.g., calling a `draw_square` function multiple times to make windows on a house)?
+    - **Docstrings:** Is it clear what each function does?
+- **5 min — Reflection:** "How did functions make this project easier than writing it all in one big block?"
+
+### Week 10, Session C (Optional): Function Libraries
+- **Focus:** Taking reusability to the next level.
+- **Task:**
+  1.  Create a new file called `my_helpers.py`.
+  2.  Cut and paste your calculator functions (`add`, `subtract`, etc.) or your basic turtle drawing functions (`draw_square`, `draw_triangle`) into this new file.
+  3.  In your main project file, add `from my_helpers import *` at the top.
+  4.  Run the main project. It should work exactly as before!
+- **Discussion:** Explain that this is how real software is built—by creating libraries of reusable functions.
+
+---
+
+## Starter Files
+
+### `art_gallery_starter.py`
+```python
+import turtle
+
+# --- Setup ---
+screen = turtle.Screen()
+pen = turtle.Turtle()
+pen.speed(0)
+
+# --- Function Definitions ---
+
+def draw_square(size):
+    """Draws a square of a given size."""
+    # TODO: Write the code to draw a square.
+    pass # 'pass' is a placeholder, you can delete it.
+
+def draw_triangle(size):
+    """Draws an equilateral triangle of a given size."""
+    # TODO: Write the code to draw a triangle.
+    pass
+
+def draw_house(x, y, size):
+    """Draws a complete house at position (x, y) with a given size."""
+    # TODO: Call your draw_square and draw_triangle functions
+    # to draw a house. Use penup() and goto() to position them.
+    pass
+
+def draw_sun(x, y, radius):
+    """Draws a sun with rays at position (x, y)."""
+    # TODO: Draw a circle and some lines for rays.
+    pass
+
+# --- Main Program (Composition) ---
+# This is where you call your functions to create your scene.
+
+print("Drawing the art gallery scene...")
+
+# TODO: Call your functions here to draw a house, a sun, etc.
+# Example:
+# draw_house(-100, 0, 100)
+# draw_sun(150, 150, 40)
+
+pen.hideturtle()
+screen.exitonclick()
+```
+
+### `calculator_starter.py`
+```python
+def show_menu():
+    """Prints the calculator menu."""
+    print("\n--- Calculator Menu ---")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Exit")
+
+def add(a, b):
+    """Returns the sum of a and b."""
+    # TODO: Return the result of a + b
+    return 0 # Placeholder
+
+def subtract(a, b):
+    """Returns the difference of a and b."""
+    # TODO: Return the result of a - b
+    return 0 # Placeholder
+
+# TODO: Define multiply(a, b) and divide(a, b) functions as well.
+# In divide, check if b is 0 to avoid an error!
+
+# --- Main Program Loop ---
+while True:
+    show_menu()
+    choice = input("Enter your choice (1-5): ")
+
+    if choice == "5":
+        print("Goodbye!")
+        break # Exit the loop
+
+    # Get two numbers from the user
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+        continue # Skip to the next loop iteration
+
+    # Call the correct function based on the user's choice
+    if choice == "1":
+        result = add(num1, num2)
+        print(f"Result: {result}")
+    elif choice == "2":
+        result = subtract(num1, num2)
+        print(f"Result: {result}")
+    # TODO: Add elif blocks for choice "3" and "4".
+    else:
+        print("Invalid choice. Please select from 1-5.")
+```
