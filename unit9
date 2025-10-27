@@ -1,0 +1,212 @@
+# Unit 9 Implementation Guide — Game Design with Pygame Zero
+For 45-minute class periods (Weeks 20–23). This guide focuses on the principles of game development using the Pygame Zero library, which simplifies the process. The main projects are **Fruit Catcher** or **Space Runner**.
+
+**Note for Teachers:** Pygame Zero (`pgzero`) is highly recommended over Turtle for this unit as it's designed for games. It has a built-in game loop, actor model, and simple event handling. Replit has a "Pygame Zero" template that works out of the box. If you must use Turtle, "Turtle Alternative" notes are included for key concepts.
+
+---
+
+## Goals for Unit 9
+- Students can explain the **game loop** (`update`/`draw` cycle).
+- Students can create and control a player character (**Actor**) using keyboard input.
+- Students can dynamically **spawn** and manage multiple game objects using lists.
+- Students can implement **collision detection** between actors.
+- Students can manage game **state**, including score, timers, and win/lose conditions.
+- Students can integrate art and sound to create a polished final product.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Game Loop:** The heartbeat of a game. It's an infinite loop that does two main things, over and over, 60 times per second:
+  1.  **`update()`:** Update the game's state. Move the player, move enemies, check for collisions, update the score. This is all the *logic*.
+  2.  **`draw()`:** Draw everything onto the screen in its new position. This is all the *visuals*.
+- **Actor:** The main object in Pygame Zero. An Actor represents a player, an enemy, a coin, etc. It has built-in properties like `x`, `y`, `width`, `height`, and an `image`.
+  - `player = Actor("player_image")`
+- **Handling Input:** In `pgzero`, you can check the state of the keyboard directly in the `update` function.
+  - `if keyboard.left:`
+- **Spawning:** Creating new Actors during the game and adding them to a list. For example, a list called `fruits` will hold all the fruit Actors currently on screen.
+- **Collision Detection:** Checking if two Actors are overlapping. `pgzero` makes this easy:
+  - `if player.colliderect(fruit):`
+- **State Management:** Using global variables to keep track of important information like `score`, `time_left`, or `game_over`.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Replit accounts with the Pygame Zero template ready.
+- A collection of simple game assets (images and sounds) for students to use. Sites like Kenney.nl or OpenGameArt.org are great sources.
+- Starter code for the chosen game project.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 20, Session A: The Game Loop
+- **5 min — Bell Ringer:** "Think about a game like Mario. What things are constantly happening, even when you're not pressing any buttons?" (Answer: Goombas are moving, clouds are scrolling, music is playing).
+- **15 min — Mini-Lesson:**
+  - Introduce the `update`/`draw` game loop. Emphasize that `update` is for logic and `draw` is for visuals.
+  - In `pgzero`, show the basic structure:
+    ```python
+    player = Actor("player")
+    def draw():
+        screen.clear()
+        player.draw()
+    def update():
+        if keyboard.left:
+            player.x -= 5
+        # ...etc.
+    ```
+  - **Turtle Alternative:** Explain how to simulate this with `while True:`, moving objects, and then calling `screen.update()` at the end of the loop.
+- **20 min — Guided Practice:**
+  - **Task:** Create a screen with one Actor (a player) and make it move left and right with the arrow keys.
+- **5 min — Exit Ticket:** "What is the difference between the `update` function and the `draw` function?"
+
+### Week 20, Session B: Spawning and Collision
+- **10 min — Mini-Lesson:**
+  - **Spawning:** Show how to create a list (e.g., `fruits = []`) and add new Actors to it.
+  - **Collision:** Demonstrate `player.colliderect(fruit)` inside a `for` loop that checks every fruit.
+- **10 min — Project Kickoff: Fruit Catcher or Space Runner**
+  - **Fruit Catcher:** A player basket moves left/right at the bottom, catching fruit that falls from the top.
+  - **Space Runner:** A player ship moves up/down/left/right, avoiding asteroids that fly across the screen.
+  - Students choose a project.
+- **25 min — Implementation:** Students start their chosen project, focusing on player movement and spawning one single enemy/fruit that moves.
+
+### Week 20, Session C (Optional): Core Loop
+- **Focus:** Getting one full cycle of gameplay working.
+- **Task:**
+  - **Fruit Catcher:** Make the fruit fall from a random `x` position at the top. When it collides with the player, add to the score and reset the fruit back to the top.
+  - **Space Runner:** Make the asteroid fly from right to left. When it collides with the player, end the game. If it goes off the left side of the screen, reset it to the right side.
+
+---
+
+### Week 21, Session A: State, Timers, and Difficulty
+- **10 min — Mini-Lesson:**
+  - Introduce global variables for game state: `score = 0`, `game_over = False`.
+  - Show how to use `if not game_over:` to make sure the `update` logic only runs while the game is active.
+  - Show how to schedule a function to run after a delay with `clock.schedule_unique()`, perfect for spawning enemies.
+- **35 min — Implementation:**
+  - Add a score and a `game_over` state.
+  - Use `clock.schedule_unique("spawn_fruit", 1.0)` to call a `spawn_fruit` function every second.
+  - Add a timer that counts down. The game ends when the timer reaches 0.
+
+### Week 21, Session B: Polish - Art and Sound
+- **10 min — Mini-Lesson:**
+  - `pgzero` makes this easy!
+  - **Art:** Actors are created with an image name (e.g., `Actor("apple")`). Just make sure `apple.png` is in the `images` folder.
+  - **Sound:** Use `sounds.my_sound.play()` to play a sound. `my_sound.wav` must be in the `sounds` folder.
+- **35 min — Polish Session:** Students replace the default placeholder art with their own chosen sprites and add sound effects for key events (catching fruit, collision, game over).
+
+### Week 21, Session C (Optional): Performance Pass
+- **Focus:** Making the game run smoothly.
+- **Task:**
+  - **Cap Spawns:** If too many objects are on screen, the game can lag. Add a check: `if len(fruits) < 10:`.
+  - **Clean Reset:** Create a `reset()` function that sets all game state variables back to their starting values. Call this function at the beginning of the game and when the player wants to restart.
+
+---
+
+### Week 22, Session A: High Score Persistence
+- **Focus:** Revisit Unit 8 concepts.
+- **Task:** Students integrate the file I/O logic from the `highscore_tracker_starter.py` into their game.
+  - Read the high score when the game starts.
+  - Display it on the game over screen.
+  - If the current score is higher, save it to the file.
+
+### Week 22, Session B: Submission and Demos
+- **20 min — Final Bug Bash:** Students playtest their own game one last time, looking for and fixing any remaining bugs.
+- **25 min — Mini-Demos and Submission:**
+  - 3-4 students demo their games on the projector.
+  - Everyone submits their project link/file.
+
+### Week 22, Session C (Optional): Stretch Goals
+- **Focus:** Add an advanced feature.
+- **Task Ideas:**
+  - **Power-ups:** A special fruit that temporarily speeds you up or doubles your score.
+  - **Multiple Lives:** Instead of `game_over` on the first hit, the player has 3 lives.
+  - **Pause/Resume:** Add a key press that pauses/unpauses the game.
+
+*(Note: Week 23 from the original plan is integrated into the above sessions. This 3-week structure is more typical for a single game project.)*
+
+---
+
+## Starter File: `fruit_catcher_starter.py` (Pygame Zero)
+*Setup: Create a `pgzero` Repl. In the `images` folder, add `player.png` and `fruit.png`.*
+
+```python
+import random
+
+# --- Game Setup ---
+WIDTH = 800
+HEIGHT = 600
+TITLE = "Fruit Catcher"
+
+# --- Game State Variables ---
+score = 0
+game_over = False
+
+# --- Actors ---
+# Player basket
+player = Actor("player")
+player.bottom = HEIGHT - 10 # Position at the bottom
+
+# A list to hold all the fruit actors
+fruits = []
+
+# --- Main Game Functions ---
+def draw():
+    """Draws everything on the screen."""
+    screen.clear()
+    screen.fill("skyblue") # Background color
+
+    # Draw the player and all the fruits
+    player.draw()
+    for fruit in fruits:
+        fruit.draw()
+
+    # Draw the score
+    screen.draw.text(f"Score: {score}", (10, 10), color="black")
+
+    # Draw Game Over message if the game is over
+    if game_over:
+        screen.draw.text("Game Over!", center=(WIDTH/2, HEIGHT/2), fontsize=60, color="red")
+
+def update():
+    """Updates the game state 60 times per second."""
+    global score, game_over
+
+    if not game_over:
+        # --- Player Movement ---
+        if keyboard.left and player.left > 0:
+            player.x -= 8
+        if keyboard.right and player.right < WIDTH:
+            player.x += 8
+
+        # --- Fruit Movement and Collision ---
+        for fruit in fruits:
+            fruit.y += 5 # Move fruit down
+            # Check for collision with player
+            if player.colliderect(fruit):
+                score += 1
+                sounds.eep.play() # A default sound
+                reset_fruit(fruit)
+            # Check if fruit went off-screen
+            if fruit.top > HEIGHT:
+                # In a real game, you might lose a life here!
+                reset_fruit(fruit)
+
+def spawn_fruit():
+    """Creates a new fruit actor at a random position."""
+    if not game_over:
+        fruit = Actor("fruit")
+        fruit.x = random.randint(50, WIDTH - 50)
+        fruit.y = 0
+        fruits.append(fruit)
+
+def reset_fruit(fruit):
+    """Resets a fruit to a new random position at the top."""
+    fruit.x = random.randint(50, WIDTH - 50)
+    fruit.y = 0
+
+# --- Scheduling ---
+# Call the spawn_fruit function every 1.5 seconds
+clock.schedule_interval(spawn_fruit, 1.5)
+```
