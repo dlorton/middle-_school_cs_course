@@ -1,0 +1,160 @@
+# Unit 10 Implementation Guide — Simulation and Visualization
+For 45-minute class periods (Weeks 24–25). This guide expands on using code to run experiments, collect data, and visualize results with ASCII histograms, focusing on the **Dice Simulation & Probability Explorer** project.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 10
+- Students can explain what a **simulation** is and why it's useful.
+- Students can use loops to run thousands of **trials** in an experiment.
+- Students can use dictionaries to **track the frequency** of outcomes.
+- Students can calculate simple statistics like **mean** and **max** from their results.
+- Students can generate an **ASCII histogram** to visualize the distribution of data.
+- Students can analyze their results to draw simple conclusions about probability.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Simulation:** Using a computer program to imitate a real-world process. Instead of flipping a coin 10,000 times by hand (which is slow and boring), we can write a program to do it in less than a second. This lets us explore questions about chance and probability.
+- **Trial:** A single run of an experiment. One coin flip is a trial. One dice roll is a trial. Our simulations will run many trials.
+- **Distribution:** The "shape" of our data after many trials. It shows us which outcomes are common and which are rare. For a single fair die, the distribution should be "flat" (all numbers come up about the same amount). For two dice, the distribution will be "peaked" in the middle.
+- **ASCII Histogram:** A bar chart made out of text characters (like `*`, `#`, or `█`). It's a simple, powerful way to see the distribution of our data directly in the console.
+- **Probability:** The likelihood of an event happening. By running simulations, we can get an experimental sense of probability without needing to do complex math.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Slides or board notes explaining distribution and showing an example of an ASCII histogram.
+- Starter code for the Dice Simulation project.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 24, Session A: Introduction to Simulation
+- **5 min — Bell Ringer:** "If you flip a coin 10 times, will you always get 5 heads and 5 tails? Why or why not?" (Answer: No, because of random chance).
+- **15 min — Mini-Lesson:**
+  - Introduce the concept of simulation.
+  - Revisit `random.choice()` and `random.randint()`.
+  - Revisit using a dictionary for frequency counting (from Unit 6).
+- **20 min — Guided Practice:**
+  - **Task 1: Coin Flip Streaks.** Write a simulation that flips a virtual coin 100 times. Count the total number of heads and tails.
+  - **Task 2 (Challenge):** In the same simulation, track the longest "streak" of consecutive heads.
+- **5 min — Exit Ticket:** "What is one advantage of running a simulation instead of doing an experiment in real life?"
+
+### Week 24, Session B: Project - Dice Simulation & Histograms
+- **10 min — Project Kickoff: Dice Simulation & Probability Explorer**
+  - **Goal:** Simulate rolling a single six-sided die (1d6) thousands of times and visualize the results.
+  - **Plan:**
+    1.  Set a variable for the number of trials (e.g., `num_rolls = 1000`).
+    2.  Create an empty dictionary to store the results (e.g., `results = {}`).
+    3.  Loop `num_rolls` times. In each loop, simulate a roll from 1 to 6.
+    4.  Use the frequency counting pattern to update the `results` dictionary.
+    5.  After the loop, create a second loop to print the results as an ASCII histogram.
+- **35 min — Implementation:**
+  - Students use the starter file to implement the simulation for a single die (1d6). The main focus is getting the frequency counting correct and printing a basic bar chart.
+  - **ASCII Bar Chart Logic:** `bar = "█" * count`.
+
+### Week 24, Session C (Optional): Reflection and Interpretation
+- **Focus:** Thinking about the results.
+- **Task:** Students look at the histogram for their 1d6 simulation. They should write a short paragraph answering:
+  - "What does the shape of your graph tell you?"
+  - "Does the die seem fair? How can you tell from the graph?"
+  - "If you ran the simulation again, would the graph look exactly the same? Why or why not?"
+- **Discussion:** Share some of the reflections and discuss why the bars are all roughly the same height for a fair die.
+
+---
+
+### Week 25, Session A: Extending the Simulation (2d6)
+- **10 min — Mini-Lesson:**
+  - Pose the question: "What happens if we roll *two* dice and add their results together? Will the graph still be flat?"
+  - On the board, show the combinations that make 7 (1+6, 2+5, 3+4, etc.) versus the combinations that make 2 (1+1 only).
+- **30 min — Implementation:**
+  - **Task:** Modify the project to simulate rolling two dice (2d6).
+  - **Code Change:** Inside the loop, instead of one roll, they need two, and they store the *sum* of the rolls.
+    ```python
+    # Before (1d6)
+    # roll = random.randint(1, 6)
+
+    # After (2d6)
+    roll1 = random.randint(1, 6)
+    roll2 = random.randint(1, 6)
+    total_roll = roll1 + roll2
+    # Now, use total_roll to update the dictionary
+    ```
+  - Students run the simulation again and observe the new, peaked shape of the histogram.
+- **5 min — Exit Ticket:** "What was the most common result when rolling two dice?"
+
+### Week 25, Session B: Submission and Analysis
+- **15 min — Final Polish:**
+  - Students clean up their code, add comments explaining the 1d6 and 2d6 parts, and ensure the output is clear and easy to read.
+- **25 min — Submission and Analysis:**
+  - Students submit their final project file.
+  - **Crucial Exit Ticket / Mini-Quiz:** "In a few sentences, explain *why* the number 7 is the most common result when you roll two dice. Use an example in your explanation." (This is the key assessment for the unit).
+- **5 min — Class Discussion:** Go over the answer to the exit ticket, reinforcing the idea of combinations.
+
+### Week 25, Session C (Optional): Advanced Visualization
+- **Focus:** Making the visualization better.
+- **Task 1: Scaled Bars.** If you run a million trials, the ASCII bars will be too long for the screen. Show students how to scale them.
+  - Find the maximum count in the results.
+  - `scale_factor = max_count / 50` (to make the longest bar 50 characters).
+  - `bar_length = int(count / scale_factor)`.
+- **Task 2: Turtle Visualization.**
+  - Use the Turtle module to draw a proper bar chart.
+  - Create a function `draw_bar(x, y, height, width)` and call it inside a loop that iterates through the results dictionary. This is a great way to connect back to Unit 7.
+
+---
+
+## Starter File: `dice_simulation_starter.py`
+```python
+import random
+
+print("--- Dice Probability Explorer ---")
+
+# --- Simulation Parameters ---
+# TODO: Start with 1 die and 1000 rolls.
+# Later, you will change this to 2 dice.
+num_dice = 1
+num_rolls = 1000
+
+# This dictionary will store the results: {roll_total: count}
+results = {}
+
+# --- Main Simulation Loop ---
+print(f"Simulating rolling {num_dice} die(dice) {num_rolls} times...")
+for _ in range(num_rolls):
+    # --- Simulate the Roll(s) ---
+    # TODO: For 1 die, just roll once.
+    # For 2 dice, roll twice and add them together.
+    roll1 = random.randint(1, 6)
+    # roll2 = random.randint(1, 6) # Uncomment for 2 dice
+    total_roll = roll1 # Change to roll1 + roll2 for 2 dice
+
+    # --- Update the Results Dictionary (Frequency Counting) ---
+    if total_roll in results:
+        results[total_roll] += 1
+    else:
+        results[total_roll] = 1
+
+# --- Print the Results ---
+print("\n--- Results ---")
+# Sorting the dictionary by the roll number (the key) makes the histogram look nice.
+sorted_keys = sorted(results.keys())
+
+for roll in sorted_keys:
+    count = results[roll]
+    
+    # Calculate the percentage (optional but cool)
+    percentage = (count / num_rolls) * 100
+    
+    # Create the ASCII bar
+    bar = "█" * int(percentage) # A simple way to scale the bar
+    
+    # The formatting helps align everything neatly
+    print(f"{roll:<2} ({count:<5} rolls) | {bar} {percentage:.1f}%")
+
+print("\n--- Simulation Complete ---")
+```
