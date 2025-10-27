@@ -1,0 +1,148 @@
+# Unit 11 Implementation Guide — Final Project and Showcase
+For 45-minute class periods (Weeks 26–30). This guide provides a structure for students to plan, build, polish, and present a capstone project of their own design.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 11
+- Students will apply their cumulative programming knowledge to create a substantial, self-directed project.
+- Students will practice **project management**: planning, setting milestones, and managing time.
+- Students will define a **Minimum Viable Product (MVP)** and prioritize features.
+- Students will engage in **peer feedback** and iterative development.
+- Students will document their work with a `README.md` file.
+- Students will present their finished project in a class showcase.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Capstone Project:** A final project that brings together everything you've learned. It's your chance to be creative and build something you're proud of.
+- **Project Pitch:** A short, clear description of your project idea. It should answer:
+  1.  **What is it?** (A game, a tool, a story?)
+  2.  **Who is it for?** (My friends, my family, me?)
+  3.  **What makes it cool?** (The core feature or idea).
+- **MVP (Minimum Viable Product):** The smallest, simplest version of your project that still works and is fun/useful. The goal is to build the MVP first, then add more features if you have time. This prevents you from running out of time with a half-finished, broken project.
+  - *Analogy:* If you're building a car, the MVP is a skateboard. It has wheels and a board and it gets you from A to B. It's not a car yet, but it *works*. Once the skateboard is done, you can add a seat, then a motor, then a steering wheel.
+- **Milestones:** Small, weekly goals you set for yourself to stay on track. (e.g., "Week 1: Get player movement working.").
+- **Bug Log:** A simple list where you write down bugs you find and check them off when you fix them. It helps you stay organized.
+- **UX (User Experience):** How it *feels* to use your program. Is it easy to understand? Is it fun? Is it frustrating? Good UX means adding clear instructions, intuitive controls, and helpful feedback.
+- **`README.md`:** The instruction manual for your project. It tells others what your project is, how to run it, and what its features are.
+
+---
+
+## Materials and Prep
+- A **Project Proposal Template** (digital document or handout).
+- A **Peer Feedback Form** template.
+- A **Final Project Rubric** outlining the grading criteria.
+- A schedule for the final showcase.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 26: Planning and Prototyping
+- **Session A: Brainstorming and Pitching**
+  - **15 min — Kickoff:** Introduce the final project. Show 2-3 examples of great projects from previous units (e.g., a polished game, a useful tool).
+  - **15 min — Brainstorming:** Students can choose to expand a previous project or create something new. Ideas: a more advanced game, a quiz generator, a story creator, a pixel art tool, a decision-making helper.
+  - **15 min — Project Proposal:** Students fill out the Project Proposal Template, defining their pitch, audience, and a list of "Must-Have" (MVP) and "Nice-to-Have" features. **Teacher must approve proposals.**
+- **Session B: The MVP Prototype**
+  - **Focus:** Build the single most important part of your project. This is a "proof of concept."
+  - **Task:**
+    - *Game:* Get the player character on screen and moving.
+    - *Quiz Tool:* Get one question to display and be answerable.
+    - *Art Tool:* Get a single pixel to change color when clicked.
+  - **Goal:** By the end of the session, every student should have a program that *runs* and shows their core idea working, even in a very basic way.
+- **Session C (Optional): Feedback Circle**
+  - **Task:** In small groups of 3-4, students give a 1-minute demo of their MVP prototype.
+  - Group members fill out a simple feedback form: "What I like is..." and "I wonder if...". This provides early, positive feedback and helps students clarify their ideas.
+
+---
+
+### Week 27: Building and Testing
+- **Session A: "Heads Down" Building**
+  - **Focus:** This is a pure work session. The goal is to complete the "Must-Have" features defined in the project proposal.
+  - **Teacher Role:** Circulate, troubleshoot bugs, and help students stay on track with their milestones. Remind them to focus on the MVP first.
+- **Session B: Testing and Bug Logging**
+  - **10 min — Mini-Lesson:** Introduce a simple bug log format (e.g., in a `bugs.txt` file): `BUG: The score doesn't reset when you restart. STATUS: Not fixed.`
+  - **30 min — Peer Testing:** Students swap projects with a partner. They spend 15 minutes trying to "break" their partner's project and logging any bugs they find. Then they swap back and review the bugs.
+- **Session C (Optional): Feature Freeze**
+  - **Focus:** Completing all core features.
+  - **Announcement:** "Feature Freeze." After today, students should not add any major new features. The focus must shift to making the existing features work perfectly (polishing).
+
+---
+
+### Week 28: Polishing and UX
+- **Session A: UX Polish**
+  - **Focus:** How easy and fun is your project to use?
+  - **Checklist for students:**
+    - [ ] Are there clear instructions at the start?
+    - [ ] Are the controls intuitive?
+    - [ ] Does the program give good feedback (e.g., "Correct!", "Game Over")?
+    - [ ] Is the text easy to read?
+- **Session B: Art, Sound, and Credits**
+  - **Focus:** Making the project look and sound good.
+  - **Task:** Students add final art assets, sound effects, and background music.
+  - **Crucially:** They must create a `credits.txt` file or a "Credits" screen listing where they got their assets from (e.g., "Music from Kenney.nl"). This teaches digital citizenship.
+- **Session C (Optional): Final Pass**
+  - **Focus:** Making the project robust.
+  - **Task:** Students go through their code and add input validation (`try/except` blocks for number inputs) and handle edge cases. What happens if the user enters "ten" instead of "10"?
+
+---
+
+### Week 29 & 30: Documentation and Showcase
+- **Week 29, Session A: Writing the README**
+  - **10 min — Mini-Lesson:** Explain what a `README.md` file is. Provide a template.
+  - **35 min — Writing:** Students write their README file. It should include: a project title, a short description, how to run/play the game, and a list of the main features.
+- **Week 29, Session B: Showcase Prep**
+  - **Focus:** Preparing a 2-minute live demo.
+  - **Task:** Students create a short "script" for their presentation.
+    1.  Introduce the project (the pitch).
+    2.  Show the main feature (the MVP loop).
+    3.  Show one "cool" extra feature they added.
+    4.  Mention one challenge they overcame.
+- **Week 29, Session C (Optional): Dress Rehearsal**
+  - Students practice their 2-minute demo in their small feedback groups from Week 26. This helps calm nerves and refine their presentation.
+
+- **Week 30: The Showcase**
+  - **Sessions A & B:** The Final Showcase!
+  - Each student presents their 2-minute demo to the class.
+  - While others present, audience members fill out a positive feedback form for each project ("My favorite feature was...").
+  - The teacher uses the Final Project Rubric to grade each project.
+  - **Celebrate!** This is a huge accomplishment.
+
+---
+
+## Project Document Templates
+
+### Project Proposal Template
+```
+# Final Project Proposal
+
+**Project Title:** ____________________
+
+**My Pitch (1-2 sentences):**
+____________________________________________________________
+
+**Audience (Who is this for?):**
+____________________________________________________________
+
+**Features List:**
+(Put a * next to your MVP features)
+
+*   **Must-Haves (MVP):**
+    *   [ ] ____________________
+    *   [ ] ____________________
+    *   [ ] ____________________
+
+*   **Nice-to-Haves (Extensions):**
+    *   [ ] ____________________
+    *   [ ] ____________________
+```
+
+### Final Project Rubric (Simplified)
+- **Concept & MVP (25%):** The project has a clear idea and the core loop is fully functional.
+- **Technical Implementation (25%):** The code uses concepts from the class correctly (loops, functions, lists/dicts, etc.) and is well-commented.
+- **Polish & UX (25%):** The project is easy to use, has clear instructions, includes art/sound, and handles basic errors.
+- **Documentation & Presentation (25%):** The project has a complete README and the student presented it clearly in the showcase.
+```
