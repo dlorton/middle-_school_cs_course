@@ -1,0 +1,194 @@
+# Unit 6 Implementation Guide — Dictionaries and Modeling
+For 45-minute class periods (Weeks 14–15). This guide expands on dictionaries, their use cases for modeling data, and the unit's projects: Emoji/Word Counter and Flashcards/Quizzer.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 6
+- Students can create and manage data using **dictionaries**.
+- Students can explain the concept of a **key-value pair**.
+- Students can access, add, update, and remove items from a dictionary.
+- Students can iterate over a dictionary's keys, values, or items.
+- Students can use a dictionary to solve common problems like **frequency counting**.
+- Students can model real-world relationships (like a question and its answer) using a dictionary.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **Dictionary (`dict`):** An unordered collection of **key-value pairs**. Unlike a list, where you access items by their numeric position (index), you access items in a dictionary using a unique **key**. Dictionaries are **mutable**.
+  - *Analogy:* A real dictionary. The **key** is the word you look up (e.g., "Python"), and the **value** is its definition. The order of words in the dictionary doesn't matter, only that each word (key) points to its correct definition (value).
+- **Key-Value Pair:** The fundamental building block of a dictionary. Each key is connected to a value.
+  - `{"name": "Alice"}` -> `name` is the key, `"Alice"` is the value.
+  - Keys must be unique and are typically strings or numbers. Values can be anything: strings, numbers, lists, even other dictionaries!
+- **Creating Dictionaries:** Use curly braces `{}`. `player = {"name": "Zelda", "score": 100, "inventory": ["sword", "shield"]}`.
+- **Accessing Values:** Use square brackets with the key: `player["name"]` would give you `"Zelda"`.
+- **Adding/Updating:** Simply assign a value to a key: `player["score"] = 150` (updates) or `player["location"] = "Hyrule"` (adds a new key-value pair).
+- **Frequency Counting:** A classic use for dictionaries. You can count how many times each item appears in a list or string. The item is the key, and the count is the value.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Slides or board notes explaining the key-value pair concept with diagrams.
+- Starter code for the two projects.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 14, Session A: Introduction to Dictionaries
+- **5 min — Bell Ringer:** "Imagine you're storing a player's data. You have `player_name = 'Alex'` and `player_score = 500`. How could you store both pieces of info together under a single variable called `player`?"
+- **15 min — Mini-Lesson:**
+  - Introduce the dictionary syntax: `{key: value}`.
+  - Show how to create, access (`my_dict["key"]`), add, and update key-value pairs.
+  - Demonstrate how to check if a key exists: `if "score" in player:`.
+  - Explain how to iterate: `for key in my_dict:` and `for key, value in my_dict.items():`.
+- **20 min — Guided Practice: Frequency Counting**
+  - **Task:** Count the occurrences of each letter in a simple string like "banana".
+  - **Live Code Together:**
+    ```python
+    word = "banana"
+    letter_counts = {} # Start with an empty dictionary
+
+    for letter in word:
+        if letter in letter_counts:
+            letter_counts[letter] = letter_counts[letter] + 1
+        else:
+            letter_counts[letter] = 1 # First time seeing this letter
+
+    print(letter_counts) # Output: {'b': 1, 'a': 3, 'n': 2}
+    ```
+- **5 min — Exit Ticket:** "In a dictionary, what is a 'key' and what is a 'value'?"
+
+### Week 14, Session B: Project - Emoji/Word Counter
+- **10 min — Project Kickoff: Emoji/Word Counter**
+  - **Goal:** Write a program that takes a sentence from the user, counts the frequency of each word (or emoji), and prints the results as an ASCII bar chart.
+  - **Plan:**
+    1. Get a sentence from the user.
+    2. Use `.lower()` and `.split()` to get a list of words.
+    3. Use the frequency counting pattern from the previous session to count the words.
+    4. Loop through the final dictionary and print each word along with a bar made of a character (like `*` or `█`).
+- **35 min — Implementation:**
+  - Students use a starter file to implement the first three steps: getting input, splitting it, and counting the words in a dictionary. The ASCII bar chart can wait if they run out of time.
+  - **Challenge:** How to handle punctuation? (e.g., "word." should be counted as "word"). A simple `.replace(".", "")` can work.
+
+### Week 14, Session C (Optional): Formatting Lab
+- **Focus:** Making the Emoji/Word Counter output look great.
+- **Task 1: ASCII Bar Chart.**
+  - Inside the final `for` loop, show students how to print a character multiplied by the count: `bar = "█" * count`.
+  - `print(f"{word}: {bar}")`.
+- **Task 2: Sorting (Advanced).**
+  - This is a good challenge. Show students how to sort the dictionary items by value.
+  - `sorted_items = sorted(word_counts.items(), key=lambda item: item[1], reverse=True)`
+  - This line is complex, so it's best to provide it as a "magic spell" and briefly explain that `lambda` creates a small, anonymous function to tell `sorted` *what* to sort by (the value, which is at `item[1]`).
+
+---
+
+### Week 15, Session A: Project - Flashcards/Quizzer
+- **10 min — Project Kickoff: Flashcards/Quizzer**
+  - **Goal:** Create a program that quizzes the user with questions from a dictionary and keeps score.
+  - **Plan:**
+    1.  Create a dictionary where keys are questions and values are the answers.
+    2.  Initialize a `score` variable to 0.
+    3.  Loop through the dictionary's items (`for question, correct_answer in quiz.items():`).
+    4.  Inside the loop, ask the user the question.
+    5.  Check if their answer matches the `correct_answer`. If so, add to the score and give positive feedback.
+    6.  After the loop, print the final score.
+- **35 min — Implementation:**
+  - Students use a starter file to create their question-answer dictionary and write the main quiz loop.
+  - **Tip:** Use `.lower()` and `.strip()` on the user's answer to be more forgiving of capitalization and extra spaces.
+
+### Week 15, Session B: Submission and Reflection
+- **20 min — Final Polish:**
+  - Students choose **one** of the two projects (Counter or Quizzer) to finalize and submit. They should add comments and a docstring.
+- **20 min — Peer Playtest & Submission:**
+  - Students swap project links with a partner and test their project.
+  - Submit the link/file.
+- **5 min — Exit Ticket:** "When would you use a dictionary instead of a list? Give an example." (Good answer: When you need to look things up by a specific name/label, not just a number position. E.g., storing a user's profile info).
+
+### Week 15, Session C (Optional): Extensions for Quizzer
+- **Focus:** Adding more features to the Flashcards/Quizzer project.
+- **Task 1: Review Wrong Answers.**
+  - Create an empty list called `wrong_answers`.
+  - When a user gets a question wrong, append the question and correct answer to this list.
+  - At the end of the quiz, loop through `wrong_answers` and show the user what they should study.
+- **Task 2: Categories of Flashcards.**
+  - Create a nested dictionary where the top-level keys are categories (e.g., "Science", "History").
+  - The values would be the question-answer dictionaries for that category.
+  - Ask the user which category they want to be quizzed on at the start.
+
+---
+
+## Starter Files
+
+### `word_counter_starter.py`
+```python
+# Get input from the user
+text = input("Enter a sentence or some text: ").lower()
+
+# Clean up the text (optional but good practice)
+text = text.replace(".", "").replace(",", "").replace("?", "")
+
+# Split the text into a list of words
+words = text.split()
+
+# Create an empty dictionary to store word counts
+word_counts = {}
+
+# Loop through the words and count them
+for word in words:
+    if word in word_counts:
+        # If we've seen the word before, add 1 to its count
+        word_counts[word] += 1
+    else:
+        # If it's a new word, add it to the dictionary with a count of 1
+        word_counts[word] = 1
+
+# --- Print the results ---
+print("\n--- Word Frequencies ---")
+for word, count in word_counts.items():
+    # TODO: Print the word and an ASCII bar representing its count
+    bar = "█" * count
+    print(f"{word:<15} | {bar} ({count})") # The :<15 formats the word to be left-aligned in a 15-char space
+
+```
+
+### `quizzer_starter.py`
+```python
+import random
+
+# --- The Quiz Data ---
+# A dictionary where keys are questions and values are answers.
+capitals_quiz = {
+    "What is the capital of France?": "Paris",
+    "What is the capital of Japan?": "Tokyo",
+    "What is the capital of Egypt?": "Cairo",
+    "What is the capital of Brazil?": "Brasilia"
+}
+
+# --- Game Setup ---
+score = 0
+# The .items() method gives us both the key and value
+quiz_items = list(capitals_quiz.items())
+random.shuffle(quiz_items) # Shuffle the quiz to make it different each time!
+
+print("--- World Capitals Quiz ---")
+
+# --- Main Quiz Loop ---
+for question, correct_answer in quiz_items:
+    # Ask the question
+    user_answer = input(f"\n{question} ").strip()
+
+    # Check the answer
+    if user_answer.lower() == correct_answer.lower():
+        print("Correct!")
+        score += 1
+    else:
+        print(f"Sorry, the correct answer was {correct_answer}.")
+
+# --- Final Score ---
+print("\n--- Quiz Complete! ---")
+print(f"Your final score is: {score} out of {len(capitals_quiz)}")
+```
