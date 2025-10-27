@@ -1,0 +1,195 @@
+# Unit 8 Implementation Guide — Randomness, Files, and State
+For 45-minute class periods (Weeks 18–19). This guide expands on the `random` module, reading from and writing to files for data persistence, and the unit's projects: Password Generator and High Score Tracker.
+
+Audience: Middle school beginners using Replit (recommended) or Thonny.
+
+---
+
+## Goals for Unit 8
+- Students can use the `random` module to generate random numbers (`randint`), select random elements (`choice`), and shuffle sequences (`shuffle`).
+- Students understand the concept of **persistence**: making data last even after a program stops running.
+- Students can **write** data to a text file using `with open(...) as f:`.
+- Students can **read** data from a text file.
+- Students can apply file I/O to a previous project to save and load a high score.
+- Students will build a secure Password Generator and a High Score Tracker.
+
+---
+
+## Key Concepts Explained (for Middle Schoolers)
+
+- **The `random` Module:** A built-in Python library full of tools for adding unpredictability to your programs. You have to `import random` to use it.
+  - `random.randint(min, max)`: Gets a random integer between `min` and `max` (inclusive).
+  - `random.choice(sequence)`: Picks one random item from a list or string.
+  - `random.shuffle(list)`: Shuffles a list *in-place*. It doesn't return a new list, it modifies the original one.
+- **State:** The data or information that your program "knows" at any given moment (e.g., the player's score, their inventory, the secret number).
+- **Persistence:** Saving the state of your program so it can be loaded back up the next time you run it. Without persistence, all variables are forgotten when the program ends.
+  - *Analogy:* A video game save file. You save your progress (the state) to a file so you don't have to start from the beginning every time.
+- **Files:** Data stored on your computer's hard drive. We will work with simple `.txt` files.
+- **File I/O (Input/Output):** The process of reading from (`Input`) and writing to (`Output`) files.
+  - **Writing (`w` mode):** `with open("data.txt", "w") as f:` creates a file (or overwrites an existing one) and prepares it for writing. `f.write("some text")` writes a string to it.
+  - **Reading (`r` mode):** `with open("data.txt", "r") as f:` opens an existing file for reading. `content = f.read()` reads the entire file's content as a string.
+- **The `with open(...)` syntax:** This is the recommended way to work with files because it automatically closes the file for you, even if errors occur.
+
+---
+
+## Materials and Prep
+- Projector for live coding.
+- Slides or board notes for the `random` functions and the `with open()` syntax.
+- Starter code for the two projects.
+- **Important:** Check if your school's platform (like Replit) allows file I/O. If not, you will need to use the "simulated save" fallback.
+
+---
+
+## Session-by-Session Flow (45 minutes each)
+
+### Week 18, Session A: The `random` Module
+- **5 min — Bell Ringer:** "In our Turtle Race, how did the turtles move differently each time? What Python tool did we use?" (Answer: `random`).
+- **15 min — Mini-Lesson:**
+  - Review `random.randint()`.
+  - Introduce `random.choice()` for picking from a list of items (like a list of possible usernames or enemy types).
+  - Introduce `random.shuffle()` for mixing up the order of a list (like shuffling a deck of cards).
+- **20 min — Guided Practice: Random Username Generator**
+  - **Task:** Create a program that generates a username by combining a random adjective and a random noun, plus a random number.
+  - **Code:**
+    ```python
+    import random
+    adjectives = ["Cool", "Super", "Mega", "Happy"]
+    nouns = ["Coder", "Hacker", "Panda", "Ninja"]
+    adj = random.choice(adjectives)
+    noun = random.choice(nouns)
+    num = random.randint(10, 99)
+    username = f"{adj}{noun}{num}"
+    print(f"Your new username is: {username}")
+    ```
+- **5 min — Exit Ticket:** "Which `random` function would you use to pick a winning lottery number? Which one to shuffle a playlist?"
+
+### Week 18, Session B: Files for Persistence
+- **5 min — Bell Ringer:** "When you close our Number Guessing Game, it forgets the high score. How could we make it remember?"
+- **15 min — Mini-Lesson:**
+  - Introduce the concept of persistence and file I/O.
+  - **Live Code - Writing:** Show the `with open("save.txt", "w") as f:` syntax. Write a simple string like a player's name to a file. Show the file appearing in the file tree (in Replit or Thonny).
+  - **Live Code - Reading:** Use `with open("save.txt", "r") as f:` to read the name back and print it.
+  - **Fallback Plan (if files are blocked):** Explain that you can "simulate" saving by storing the high score in a variable at the top of the code. It won't persist between runs, but it allows the logic to be practiced.
+- **20 min — Practice:**
+  - Students write a simple program that asks for their favorite color, saves it to `color.txt`, and then reads it back to print a message like "I remember, your favorite color is [color]!".
+- **5 min — Exit Ticket:** "What's the difference between 'w' mode and 'r' mode when opening a file?"
+
+### Week 18, Session C (Optional): Project - Password Generator
+- **10 min — Project Kickoff: Password Generator**
+  - **Goal:** Create a program that generates a strong, random password based on user-specified length and character types (letters, numbers, symbols).
+  - **Plan:**
+    1.  Define character sets (lowercase letters, uppercase, numbers, symbols) as strings or lists.
+    2.  Ask the user how many of each character type they want.
+    3.  Create a list of all the required characters.
+    4.  Use `random.shuffle()` to mix them up.
+    5.  Use `"".join()` to convert the final list back into a string.
+- **35 min — Implementation:** Students use the starter file to define their character sets and begin building the list of characters for the password.
+
+---
+
+### Week 19, Session A: Project - High Score Tracker
+- **10 min — Project Kickoff: High Score Tracker**
+  - **Goal:** Modify a previous game (like the Number Guessing Game) to save and load a high score.
+  - **Plan:**
+    1.  **At the start of the program:**
+        - `try` to open `highscore.txt` in read mode (`r`).
+        - Read the score and store it in a variable `high_score`.
+        - `except FileNotFoundError`: If the file doesn't exist, set `high_score` to a default value (like 999 for a guessing game where lower is better).
+    2.  **At the end of the game:**
+        - Compare the player's `current_score` with the `high_score`.
+        - If the player got a new high score, tell them!
+        - Open `highscore.txt` in write mode (`w`) and save the new high score.
+- **35 min — Implementation:** Students integrate the file I/O logic into one of their previous game projects.
+
+### Week 19, Session B: Submission and Reflection
+- **20 min — Final Polish:**
+  - Students choose **one** of the two projects (Password Generator or High Score Tracker) to finalize and submit.
+- **20 min — Peer Review & Submission:**
+  - Students swap project links with a partner.
+  - **For High Score Tracker:** The partner plays the game twice. Does it correctly save and load the high score on the second run?
+  - **For Password Generator:** Does it generate a password of the correct length and composition?
+  - Submit the link/file.
+- **5 min — Reflection:** "Why is 'persistence' important in software? Name one app on your phone that uses it."
+
+### Week 19, Session C (Optional): Extensions
+- **Focus:** More advanced file I/O.
+- **Task: Export/Import Settings**
+  - Modify a project to save its settings to a file. For example, in the Turtle Race, save the user's preferred background color. Or in the Password Generator, save the user's default length preference.
+  - The program should read this setting when it starts and use it.
+  - This can be extended to using JSON format for more complex data structures.
+
+---
+
+## Starter Files
+
+### `password_generator_starter.py`
+```python
+import random
+
+# --- Character Sets ---
+letters_lower = 'abcdefghijklmnopqrstuvwxyz'
+letters_upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+numbers = '0123456789'
+symbols = '!@#$%^&*()'
+
+print("--- Secure Password Generator ---")
+# --- Get User Requirements ---
+num_letters = int(input("How many letters? "))
+num_symbols = int(input("How many symbols? "))
+num_numbers = int(input("How many numbers? "))
+
+# --- Build the Password List ---
+password_list = []
+
+# Add the required characters to the list
+for _ in range(num_letters):
+    password_list.append(random.choice(letters_lower + letters_upper))
+
+# TODO: Add similar loops for symbols and numbers.
+
+# --- Shuffle and Create Final Password ---
+# TODO: Shuffle the password_list.
+
+# TODO: Join the list into a final string.
+
+# TODO: Print the final password.
+
+```
+
+### `highscore_tracker_starter.py` (to be added to a game)
+```python
+# --- High Score Logic ---
+
+# --- At the START of your program ---
+HIGH_SCORE_FILE = "highscore.txt"
+
+try:
+    with open(HIGH_SCORE_FILE, "r") as f:
+        # Read the score and convert it to an integer.
+        # .strip() removes any accidental whitespace.
+        high_score = int(f.read().strip())
+        print(f"Current high score to beat: {high_score}")
+except FileNotFoundError:
+    # If the file doesn't exist, this is the first time playing.
+    # Set a default high score. For a guessing game, a high number is bad.
+    high_score = 999
+except ValueError:
+    # If the file is empty or corrupted, reset the high score.
+    high_score = 999
+
+# --- Your main game logic goes here ---
+# ...
+# Assume the player finishes with a variable called `current_score`
+current_score = 8 # Example score
+
+# --- At the END of your program ---
+if current_score < high_score:
+    print("New high score!")
+    # Open the file in 'write' mode to save the new score.
+    # This will overwrite the old file.
+    with open(HIGH_SCORE_FILE, "w") as f:
+        f.write(str(current_score))
+else:
+    print("Better luck next time!")
+
+```
